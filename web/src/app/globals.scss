@@ -1,0 +1,18 @@
+// Global SCSS for RepoMind AI
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-primary), sans-serif;
+  background-color: #F8F9FA;
+  color: #212529;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+// Global Mantine Overrides
+.mantine-AppShell-root {
+  background-color: #F8F9FA;
+}

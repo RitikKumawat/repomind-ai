@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pydantic
+python-dotenv
+google-genai
+langchain
+langchain-community
+langchain-core
+langchain-text-splitters
+langgraph
+qdrant-client
+requests
+tree-sitter
+rank-bm25
+flashrank
