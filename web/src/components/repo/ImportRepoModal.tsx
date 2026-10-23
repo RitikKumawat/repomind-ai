@@ -25,6 +25,7 @@ import {
   IconArrowRight,
   IconInfoCircle,
   IconCheck,
+  IconGitBranch,
 } from '@tabler/icons-react';
 import { useForm } from '@mantine/form';
 import { yupResolver } from 'mantine-form-yup-resolver';
@@ -38,7 +39,8 @@ import {
   useConnectGithub,
   useUserRepos,
 } from '@/hooks/repo/useRepoQueries';
-import type { GithubRepoItem } from '@/types/repo';
+import type { GithubRepoItem, RepositoryItem } from '@/types/repo';
+import { SwitchBranchModal } from './SwitchBranchModal';
 
 interface ImportRepoModalProps {
   opened: boolean;
@@ -60,14 +62,20 @@ export function ImportRepoModal({ opened, onClose }: ImportRepoModalProps) {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState<string | null>('url');
   const [searchQuery, setSearchQuery] = useState('');
+  const [branchMap, setBranchMap] = useState<Record<string, string>>({});
+  const [switchModalRepo, setSwitchModalRepo] = useState<RepositoryItem | null>(
+    null
+  );
 
   const isGithubConnected = Boolean(user?.isGithubRepoConnected);
 
   const { data: userRepos } = useUserRepos();
 
-  const { data: githubRepos, isLoading: isLoadingGithub } = useGithubRepos(
-    opened && isGithubConnected
-  );
+  const {
+    data: githubRepos,
+    isLoading: isLoadingGithub,
+    isError: isGithubError,
+  } = useGithubRepos(opened && isGithubConnected);
 
   const importMutation = useImportRepoMutation(() => {
     onClose();
@@ -114,10 +122,12 @@ export function ImportRepoModal({ opened, onClose }: ImportRepoModalProps) {
   };
 
   const handleSelectGithubRepo = (repo: GithubRepoItem) => {
+    const targetBranch =
+      branchMap[repo.fullName]?.trim() || repo.defaultBranch || 'main';
     importMutation.mutate({
       repoFullName: repo.fullName,
       isPrivate: repo.isPrivate,
-      defaultBranch: repo.defaultBranch,
+      defaultBranch: targetBranch,
     });
   };
 
@@ -240,7 +250,26 @@ export function ImportRepoModal({ opened, onClose }: ImportRepoModalProps) {
                 onChange={(e) => setSearchQuery(e.currentTarget.value)}
               />
 
-              {isLoadingGithub ? (
+              {isGithubError ? (
+                <Stack gap="sm" py="xs">
+                  <Alert
+                    icon={<IconInfoCircle size={18} />}
+                    title="GitHub Session Expired"
+                    color="red"
+                    radius="md"
+                  >
+                    Your GitHub access token is invalid or has expired. Please reconnect your GitHub account to refresh permissions.
+                  </Alert>
+                  <FButton
+                    size="sm"
+                    leftSection={<IconBrandGithub size={16} />}
+                    loading={connectGithubMutation.isPending}
+                    onClick={() => connectGithubMutation.mutate()}
+                  >
+                    Reconnect GitHub Account
+                  </FButton>
+                </Stack>
+              ) : isLoadingGithub ? (
                 <Center py="xl">
                   <Loader size="md" />
                 </Center>
@@ -252,10 +281,12 @@ export function ImportRepoModal({ opened, onClose }: ImportRepoModalProps) {
                 <ScrollArea h={320} offsetScrollbars>
                   <Stack gap="xs">
                     {filteredRepos.map((repo) => {
-                      const isAlreadyImported = userRepos?.some(
+                      const alreadyImportedRepo = userRepos?.find(
                         (r) =>
-                          r.repoName.toLowerCase() === repo.fullName.toLowerCase()
+                          r.repoName.toLowerCase() ===
+                          repo.fullName.toLowerCase()
                       );
+                      const isAlreadyImported = Boolean(alreadyImportedRepo);
 
                       return (
                         <Paper
@@ -272,7 +303,7 @@ export function ImportRepoModal({ opened, onClose }: ImportRepoModalProps) {
                               : undefined,
                           }}
                         >
-                          <Stack gap={2} style={{ maxWidth: '75%' }}>
+                          <Stack gap={4} style={{ maxWidth: '70%' }}>
                             <Group gap="xs">
                               <Text fw={600} size="sm" truncate>
                                 {repo.fullName}
@@ -306,27 +337,77 @@ export function ImportRepoModal({ opened, onClose }: ImportRepoModalProps) {
                                 {repo.description}
                               </Text>
                             ) : null}
-                            <Group gap="xs">
+                            <Group gap="xs" align="center">
                               {repo.language ? (
-                                <Badge size="xs" variant="outline" color="indigo">
+                                <Badge
+                                  size="xs"
+                                  variant="outline"
+                                  color="indigo"
+                                >
                                   {repo.language}
                                 </Badge>
                               ) : null}
-                              <Text size="xs" c="dimmed">
-                                Branch: {repo.defaultBranch}
-                              </Text>
+                              <Group gap={4} align="center">
+                                <IconGitBranch size={12} color="gray" />
+                                <TextInput
+                                  size="xs"
+                                  variant="filled"
+                                  radius="xs"
+                                  styles={{
+                                    input: {
+                                      height: 20,
+                                      minHeight: 20,
+                                      padding: '0 4px',
+                                      fontSize: '11px',
+                                      fontWeight: 600,
+                                      color: 'var(--mantine-color-indigo-7)',
+                                      backgroundColor:
+                                        'var(--mantine-color-indigo-0)',
+                                      border:
+                                        '1px solid var(--mantine-color-indigo-2)',
+                                      width: 90,
+                                    },
+                                  }}
+                                  value={
+                                    branchMap[repo.fullName] ??
+                                    repo.defaultBranch
+                                  }
+                                  onChange={(e) => {
+                                    const val = e.currentTarget.value;
+                                    setBranchMap((prev) => ({
+                                      ...prev,
+                                      [repo.fullName]: val,
+                                    }));
+                                  }}
+                                  placeholder="Branch"
+                                  title="Click to edit target branch"
+                                />
+                              </Group>
                             </Group>
                           </Stack>
 
                           {isAlreadyImported ? (
-                            <Badge
-                              color="teal"
-                              variant="light"
-                              size="sm"
-                              leftSection={<IconCheck size={12} />}
-                            >
-                              Imported
-                            </Badge>
+                            <Group gap={6}>
+                              <Badge
+                                color="teal"
+                                variant="light"
+                                size="xs"
+                                leftSection={<IconCheck size={10} />}
+                              >
+                                {alreadyImportedRepo?.defaultBranch}
+                              </Badge>
+                              <FButton
+                                size="xs"
+                                variant="light"
+                                color="indigo"
+                                leftSection={<IconGitBranch size={12} />}
+                                onClick={() =>
+                                  setSwitchModalRepo(alreadyImportedRepo || null)
+                                }
+                              >
+                                Switch
+                              </FButton>
+                            </Group>
                           ) : (
                             <ActionIcon
                               variant="filled"
@@ -339,6 +420,7 @@ export function ImportRepoModal({ opened, onClose }: ImportRepoModalProps) {
                                   repo.fullName
                               }
                               onClick={() => handleSelectGithubRepo(repo)}
+                              title={`Import branch: ${branchMap[repo.fullName] || repo.defaultBranch}`}
                             >
                               <IconArrowRight size={18} />
                             </ActionIcon>
@@ -353,6 +435,12 @@ export function ImportRepoModal({ opened, onClose }: ImportRepoModalProps) {
           )}
         </Tabs.Panel>
       </Tabs>
+
+      <SwitchBranchModal
+        opened={Boolean(switchModalRepo)}
+        onClose={() => setSwitchModalRepo(null)}
+        repo={switchModalRepo}
+      />
     </Modal>
   );
 }

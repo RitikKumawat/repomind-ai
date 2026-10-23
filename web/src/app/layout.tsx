@@ -8,6 +8,7 @@ import { Notifications } from '@mantine/notifications';
 
 import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
+import '@mantine/code-highlight/styles.css';
 import './globals.scss';
 
 const primaryFont = Plus_Jakarta_Sans({

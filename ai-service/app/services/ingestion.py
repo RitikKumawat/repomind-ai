@@ -7,7 +7,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, VectorParams, PointStruct
+from qdrant_client.models import (
+    Distance,
+    VectorParams,
+    PointStruct,
+    Filter,
+    FieldCondition,
+    MatchValue,
+)
 from google import genai
 from google.genai import types
 from app.services.ast_chunker import chunk_code_file
@@ -176,7 +183,7 @@ def fetch_github_repo_files(
                 continue
 
             if ext in valid_extensions:
-                raw_url = f"https://raw.githubusercontent.com/{owner}/{repo}/HEAD/{path}"
+                raw_url = f"https://raw.githubusercontent.com/{owner}/{repo}/{branch}/{path}"
                 raw_res = requests.get(raw_url, headers=headers, timeout=15)
                 if raw_res.status_code == 200:
                     files.append({
@@ -285,6 +292,17 @@ def process_repository(
             )
 
         if points:
+            # Wipe previous index points for this repo (e.g. from a prior branch)
+            try:
+                qdrant_client.delete(
+                    collection_name=COLLECTION_NAME,
+                    points_selector=Filter(
+                        must=[FieldCondition(key="repo_id", match=MatchValue(value=repo_id))]
+                    ),
+                )
+            except Exception as e:
+                print(f"Info: Point cleanup for {repo_id}: {e}")
+
             batch_size = 50
             for i in range(0, len(points), batch_size):
                 qdrant_client.upsert(

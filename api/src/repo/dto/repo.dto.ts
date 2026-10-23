@@ -66,3 +66,10 @@ export interface GithubRepoItem {
   language: string | null;
   updatedAt: string | null;
 }
+
+export class SwitchBranchDto {
+  @IsNotEmpty()
+  @IsString()
+  branch: string;
+}
+

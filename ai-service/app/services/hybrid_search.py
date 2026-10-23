@@ -52,14 +52,24 @@ def hybrid_search_and_rerank(
     """
     # 1. Dense retrieval from Qdrant
     query_vector = get_query_embedding(query)
-    dense_hits = qdrant_client.search(
-        collection_name=COLLECTION_NAME,
-        query_vector=query_vector,
-        query_filter=Filter(
-            must=[FieldCondition(key="repo_id", match=MatchValue(value=repo_id))]
-        ),
-        limit=top_candidates,
+    query_filter = Filter(
+        must=[FieldCondition(key="repo_id", match=MatchValue(value=repo_id))]
     )
+    if hasattr(qdrant_client, "query_points"):
+        response = qdrant_client.query_points(
+            collection_name=COLLECTION_NAME,
+            query=query_vector,
+            query_filter=query_filter,
+            limit=top_candidates,
+        )
+        dense_hits = response.points
+    else:
+        dense_hits = qdrant_client.search(
+            collection_name=COLLECTION_NAME,
+            query_vector=query_vector,
+            query_filter=query_filter,
+            limit=top_candidates,
+        )
 
     if not dense_hits:
         return []

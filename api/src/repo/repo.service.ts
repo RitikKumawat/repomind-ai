@@ -4,6 +4,7 @@ import {
   NotFoundException,
   ConflictException,
   ServiceUnavailableException,
+  UnauthorizedException,
   Logger,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -157,6 +158,18 @@ export class RepoService {
         updatedAt: r.updated_at,
       }));
     } catch (error: unknown) {
+      const axiosError = error as { response?: { status?: number } };
+      if (axiosError?.response?.status === 401) {
+        this.logger.warn(
+          `GitHub token for user ${userId} has expired or was revoked. Resetting connection.`,
+        );
+        user.githubAccessToken = undefined;
+        user.isGithubRepoConnected = false;
+        await this.userRepo.save(user);
+        throw new UnauthorizedException(
+          'GitHub access token has expired or is invalid. Please reconnect your GitHub account.',
+        );
+      }
       this.logger.error('Failed to fetch repositories from GitHub', error);
       throw new BadRequestException('Unable to fetch repositories from GitHub');
     }
@@ -223,8 +236,11 @@ export class RepoService {
         );
       }
       if (existingRepo.status === RepoStatus.READY) {
+        if (defaultBranch && defaultBranch !== existingRepo.defaultBranch) {
+          return this.switchBranch(userId, existingRepo.id, defaultBranch);
+        }
         throw new ConflictException(
-          `Repository "${repoName}" is already imported and ready. You can query or re-index it from your dashboard.`,
+          `Repository "${repoName}" is already imported and ready on branch "${existingRepo.defaultBranch}". You can switch branches or re-index it from your dashboard.`,
         );
       }
       // If it previously FAILED, reuse existing repository record and re-trigger
@@ -331,6 +347,119 @@ export class RepoService {
     return repo;
   }
 
+  async getGithubRepoBranches(
+    userId: string,
+    repoFullName: string,
+  ): Promise<string[]> {
+    const user = await this.userRepo
+      .createQueryBuilder('user')
+      .addSelect('user.githubAccessToken')
+      .where('user.id = :id', { id: userId })
+      .getOne();
+
+    const headers: Record<string, string> = {
+      Accept: 'application/vnd.github+json',
+      'User-Agent': 'RepoMind-AI',
+    };
+    if (user?.githubAccessToken) {
+      headers.Authorization = `Bearer ${user.githubAccessToken}`;
+    }
+
+    try {
+      const response = await firstValueFrom(
+        this.httpService.get<{ name: string }[]>(
+          `https://api.github.com/repos/${repoFullName}/branches?per_page=100`,
+          { headers, timeout: 5000 },
+        ),
+      );
+      return response.data.map((b) => b.name);
+    } catch (error: unknown) {
+      this.logger.warn(
+        `Failed to fetch branches for ${repoFullName}: ${(error as Error).message}`,
+      );
+      return [];
+    }
+  }
+
+  async getImportedRepoBranches(
+    userId: string,
+    repoId: string,
+  ): Promise<string[]> {
+    const repo = await this.repoRepo.findOne({
+      where: { id: repoId, user: { id: userId } },
+    });
+    if (!repo) {
+      throw new NotFoundException('Repository not found');
+    }
+    return this.getGithubRepoBranches(userId, repo.repoName);
+  }
+
+  async switchBranch(
+    userId: string,
+    repoId: string,
+    branch: string,
+  ): Promise<Repository> {
+    const isAiOnline = await this.aiService.isHealthy();
+    if (!isAiOnline) {
+      throw new ServiceUnavailableException(
+        'AI service is offline (http://localhost:8000). Please start the AI service worker first.',
+      );
+    }
+
+    const repo = await this.repoRepo.findOne({
+      where: { id: repoId, user: { id: userId } },
+    });
+    if (!repo) {
+      throw new NotFoundException('Repository not found');
+    }
+
+    const cleanBranch = branch?.trim();
+    if (!cleanBranch) {
+      throw new BadRequestException('Branch name is required');
+    }
+
+    if (
+      repo.status === RepoStatus.IN_PROGRESS ||
+      repo.status === RepoStatus.PENDING
+    ) {
+      throw new ConflictException(
+        `Repository is currently being indexed. Please wait until indexing finishes before switching branches.`,
+      );
+    }
+
+    const user = await this.userRepo
+      .createQueryBuilder('user')
+      .addSelect('user.githubAccessToken')
+      .where('user.id = :id', { id: userId })
+      .getOne();
+
+    repo.defaultBranch = cleanBranch;
+    repo.status = RepoStatus.PENDING;
+    repo.indexingPhase = IndexingPhase.QUEUED;
+    repo.errorMessage = null;
+    repo.totalFiles = 0;
+    repo.totalChunks = 0;
+    repo.processedChunks = 0;
+    await this.repoRepo.save(repo);
+
+    const token = user?.githubAccessToken;
+    void this.aiService
+      .ingestRepository(repo.id, repo.githubUrl, token, repo.defaultBranch)
+      .catch((err: unknown) => {
+        this.logger.error(
+          `AI Ingestion branch switch failed for ${repo.id}`,
+          err,
+        );
+        void this.repoRepo.update(repo.id, {
+          status: RepoStatus.FAILED,
+          indexingPhase: IndexingPhase.FAILED,
+          errorMessage: 'Failed to trigger AI ingestion worker',
+        });
+      });
+
+    return repo;
+  }
+
   async getUserRepos(userId: string): Promise<Repository[]> {
     const repos = await this.repoRepo.find({
       where: { user: { id: userId } },
@@ -364,6 +493,66 @@ export class RepoService {
       where: { id },
       relations: { files: true, chats: true },
     });
+  }
+
+  async getFileContent(
+    userId: string,
+    repoId: string,
+    filePath: string,
+  ): Promise<{ path: string; content: string }> {
+    const repo = await this.repoRepo.findOne({
+      where: { id: repoId, user: { id: userId } },
+    });
+    if (!repo) {
+      throw new NotFoundException('Repository not found');
+    }
+
+    const user = await this.userRepo
+      .createQueryBuilder('user')
+      .addSelect('user.githubAccessToken')
+      .where('user.id = :id', { id: userId })
+      .getOne();
+
+    const cleanUrl = repo.githubUrl.replace(/\/+$/, '').replace(/\.git$/, '');
+    const parts = cleanUrl.split('/').filter(Boolean);
+    const owner = parts[parts.length - 2];
+    const repoName = parts[parts.length - 1];
+    const branch = repo.defaultBranch || 'main';
+
+    const headers: Record<string, string> = {
+      'User-Agent': 'RepoMind-AI',
+    };
+    if (user?.githubAccessToken) {
+      headers.Authorization = `token ${user.githubAccessToken}`;
+    }
+
+    const rawUrl = `https://raw.githubusercontent.com/${owner}/${repoName}/${branch}/${filePath}`;
+    try {
+      const response = await firstValueFrom(
+        this.httpService.get<string>(rawUrl, {
+          headers,
+          responseType: 'text',
+          timeout: 10000,
+        }),
+      );
+      return { path: filePath, content: response.data };
+    } catch {
+      // Fallback with HEAD branch
+      const headUrl = `https://raw.githubusercontent.com/${owner}/${repoName}/HEAD/${filePath}`;
+      try {
+        const response = await firstValueFrom(
+          this.httpService.get<string>(headUrl, {
+            headers,
+            responseType: 'text',
+            timeout: 10000,
+          }),
+        );
+        return { path: filePath, content: response.data };
+      } catch (err) {
+        this.logger.error(`Failed to fetch file content for ${filePath}`, err);
+        throw new NotFoundException(`File ${filePath} not found in repository`);
+      }
+    }
   }
 
   async getRepoStatus(id: string): Promise<{

@@ -37,14 +37,36 @@ export class AiService {
   async chat(
     repoId: string,
     message: string,
+    conversationHistory?: { role: string; content: string }[],
   ): Promise<Record<string, unknown>> {
     const response = await firstValueFrom(
       this.httpService.post<Record<string, unknown>>(
         (process.env.AI_SERVICE_URL || 'http://localhost:8000') + '/ai/chat',
-        { repoId, message },
+        { repoId, message, conversationHistory },
       ),
     );
 
+    return response.data;
+  }
+
+  async streamChat(
+    repoId: string,
+    message: string,
+    conversationHistory?: { role: string; content: string }[],
+  ): Promise<import('stream').Readable> {
+    const aiUrl = process.env.AI_SERVICE_URL || 'http://localhost:8000';
+    const response = await this.httpService.axiosRef.post<
+      import('stream').Readable
+    >(
+      `${aiUrl}/ai/chat/stream`,
+      { repoId, message, conversationHistory },
+      {
+        responseType: 'stream',
+        headers: {
+          Accept: 'text/event-stream',
+        },
+      },
+    );
     return response.data;
   }
 }

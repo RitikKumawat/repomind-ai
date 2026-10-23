@@ -40,14 +40,24 @@ export function useUserRepos() {
 }
 
 export function useGithubRepos(enabled: boolean) {
+  const queryClient = useQueryClient();
+
   return useQuery<GithubRepoItem[]>({
     queryKey: ['github-repos'],
     queryFn: async () => {
-      const res = await api.get<GithubRepoItem[]>('/repo/github/list');
-      return res.data;
+      try {
+        const res = await api.get<GithubRepoItem[]>('/repo/github/list');
+        return res.data;
+      } catch (err: unknown) {
+        const axiosErr = err as { response?: { status?: number } };
+        if (axiosErr?.response?.status === 401) {
+          queryClient.invalidateQueries({ queryKey: ['me'] });
+        }
+        throw err;
+      }
     },
     enabled,
-    retry: 1,
+    retry: false,
   });
 }
 
@@ -132,3 +142,77 @@ export function useConnectGithub() {
     },
   });
 }
+
+export function useRepoBranches(repoId?: string, enabled = true) {
+  return useQuery<string[]>({
+    queryKey: ['repo-branches', repoId],
+    queryFn: async () => {
+      if (!repoId) return [];
+      const res = await api.get<string[]>(`/repo/${repoId}/branches`);
+      return res.data;
+    },
+    enabled: Boolean(repoId && enabled),
+    staleTime: 60000,
+  });
+}
+
+export function useGithubRepoBranches(repoFullName?: string, enabled = true) {
+  return useQuery<string[]>({
+    queryKey: ['github-repo-branches', repoFullName],
+    queryFn: async () => {
+      if (!repoFullName) return [];
+      const res = await api.get<string[]>(
+        `/repo/github/branches?repoFullName=${encodeURIComponent(repoFullName)}`
+      );
+      return res.data;
+    },
+    enabled: Boolean(repoFullName && enabled),
+    staleTime: 60000,
+  });
+}
+
+export function useSwitchBranchMutation(
+  onSuccessCallback?: (data: RepositoryItem) => void
+) {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({
+      repoId,
+      branch,
+    }: {
+      repoId: string;
+      branch: string;
+    }) => {
+      const res = await api.post<RepositoryItem>(
+        `/repo/${repoId}/switch-branch`,
+        { branch }
+      );
+      return res.data;
+    },
+    onSuccess: (data) => {
+      notifications.show({
+        title: 'Branch Switched',
+        message: `Switched to branch "${data.defaultBranch}". Re-indexing codebase...`,
+        color: 'teal',
+      });
+      void queryClient.invalidateQueries({ queryKey: ['repos'] });
+      void queryClient.invalidateQueries({ queryKey: ['repo', data.id] });
+      if (onSuccessCallback) {
+        onSuccessCallback(data);
+      }
+    },
+    onError: (error: unknown) => {
+      let message = 'Failed to switch branch.';
+      if (axios.isAxiosError(error) && error.response?.data?.message) {
+        message = String(error.response.data.message);
+      }
+      notifications.show({
+        title: 'Switch Failed',
+        message,
+        color: 'red',
+      });
+    },
+  });
+}
+

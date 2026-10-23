@@ -10,6 +10,7 @@ import {
 import { type User } from './user.entity';
 import { type RepositoryFile } from './repository-file.entity';
 import { type Chat } from './chat.entity';
+import { type ChatSession } from './chat-session.entity';
 import { RepoStatus, IndexingPhase } from '../enums';
 
 @Entity()
@@ -64,4 +65,7 @@ export class Repository {
 
   @OneToMany('Chat', (chat: Relation<Chat>) => chat.repo)
   chats: Relation<Chat>[];
+
+  @OneToMany('ChatSession', (session: Relation<ChatSession>) => session.repo)
+  chatSessions: Relation<ChatSession>[];
 }

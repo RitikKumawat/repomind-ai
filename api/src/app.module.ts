@@ -8,8 +8,11 @@ import { User } from './entities/user.entity';
 import { Repository } from './entities/repository.entity';
 import { RepositoryFile } from './entities/repository-file.entity';
 import { Chat } from './entities/chat.entity';
+import { ChatSession } from './entities/chat-session.entity';
+import { ChatMessage } from './entities/chat-message.entity';
 import { RepoModule } from './repo/repo.module';
 import { AuthModule } from './auth/auth.module';
+import { ChatModule } from './chat/chat.module';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 
 @Module({
@@ -22,12 +25,20 @@ import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
       username: process.env.DB_USER || 'postgres',
       password: process.env.DB_PASSWORD || 'password',
       database: process.env.DB_NAME || 'repomind',
-      entities: [User, Repository, RepositoryFile, Chat],
+      entities: [
+        User,
+        Repository,
+        RepositoryFile,
+        Chat,
+        ChatSession,
+        ChatMessage,
+      ],
       synchronize: true, // Auto-create tables (for dev only)
     }),
     AiModule,
     RepoModule,
     AuthModule,
+    ChatModule,
   ],
   controllers: [AppController],
   providers: [

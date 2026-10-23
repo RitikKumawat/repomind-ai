@@ -7,6 +7,7 @@ import {
   type Relation,
 } from 'typeorm';
 import { Repository } from './repository.entity';
+import { type ChatSession } from './chat-session.entity';
 
 @Entity()
 export class User {
@@ -33,4 +34,7 @@ export class User {
 
   @OneToMany('Repository', (repo: Relation<Repository>) => repo.user)
   repos: Relation<Repository>[];
+
+  @OneToMany('ChatSession', (session: Relation<ChatSession>) => session.user)
+  chatSessions: Relation<ChatSession>[];
 }

@@ -6,19 +6,28 @@ def generate_rag_response(repo_id: str, message: str) -> str:
     query_vector = get_embeddings(message)
     
     # 2. Search Qdrant
-    search_result = qdrant_client.search(
-        collection_name=COLLECTION_NAME,
-        query_vector=query_vector,
-        query_filter=Filter(
-            must=[
-                FieldCondition(
-                    key="repo_id",
-                    match=MatchValue(value=repo_id)
-                )
-            ]
-        ),
-        limit=5
+    query_filter = Filter(
+        must=[
+            FieldCondition(
+                key="repo_id",
+                match=MatchValue(value=repo_id)
+            )
+        ]
     )
+    if hasattr(qdrant_client, "query_points"):
+        search_result = qdrant_client.query_points(
+            collection_name=COLLECTION_NAME,
+            query=query_vector,
+            query_filter=query_filter,
+            limit=5
+        ).points
+    else:
+        search_result = qdrant_client.search(
+            collection_name=COLLECTION_NAME,
+            query_vector=query_vector,
+            query_filter=query_filter,
+            limit=5
+        )
     
     # 3. Construct Context
     context = ""

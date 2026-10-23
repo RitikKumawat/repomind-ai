@@ -42,6 +42,7 @@ import {
   useRetryRepoMutation,
 } from '@/hooks/repo/useRepoQueries';
 import { ImportRepoModal } from '@/components/repo/ImportRepoModal';
+import { SwitchBranchModal } from '@/components/repo/SwitchBranchModal';
 import type { RepositoryItem } from '@/types/repo';
 import { RepoStatus, IndexingPhase } from '@/enums';
 import Link from 'next/link';
@@ -177,6 +178,9 @@ function RepoIngestionProgress({ repo }: { repo: RepositoryItem }) {
 export default function DashboardPage() {
   const { user } = useAuth();
   const [modalOpened, setModalOpened] = useState(false);
+  const [branchModalRepo, setBranchModalRepo] = useState<RepositoryItem | null>(
+    null
+  );
   const { data: repos, isLoading, error } = useUserRepos();
   const connectGithub = useConnectGithub();
   const retryMutation = useRetryRepoMutation();
@@ -359,11 +363,21 @@ export default function DashboardPage() {
                       <Text fw={700} size="md" truncate>
                         {repo.repoName}
                       </Text>
-                      <Group gap={6}>
-                        <IconGitBranch size={12} color="gray" />
-                        <Text size="xs" c="dimmed">
+                      <Group
+                        gap={6}
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => setBranchModalRepo(repo)}
+                        title="Click to switch branch & re-index"
+                      >
+                        <Badge
+                          size="xs"
+                          variant="outline"
+                          color="indigo"
+                          leftSection={<IconGitBranch size={10} />}
+                          style={{ cursor: 'pointer' }}
+                        >
                           {repo.defaultBranch || 'main'}
-                        </Text>
+                        </Badge>
                       </Group>
                     </Stack>
                     {getStatusBadge(repo)}
@@ -436,15 +450,27 @@ export default function DashboardPage() {
                       Ingesting Codebase...
                     </FButton>
                   ) : (
-                    <FButton
-                      component={Link}
-                      href={`/chat?repoId=${repo.id}`}
-                      size="xs"
-                      variant="light"
-                      leftSection={<IconMessageCode size={14} />}
-                    >
-                      Codebase Chat
-                    </FButton>
+                    <Group gap="xs">
+                      <FButton
+                        component={Link}
+                        href={`/chat?repoId=${repo.id}`}
+                        size="xs"
+                        variant="light"
+                        leftSection={<IconMessageCode size={14} />}
+                      >
+                        Codebase Chat
+                      </FButton>
+                      <FButton
+                        size="xs"
+                        variant="subtle"
+                        color="indigo"
+                        leftSection={<IconGitBranch size={13} />}
+                        onClick={() => setBranchModalRepo(repo)}
+                        title="Switch branch & re-index codebase"
+                      >
+                        Branch
+                      </FButton>
+                    </Group>
                   )}
                   <FButton
                     component="a"
@@ -467,6 +493,12 @@ export default function DashboardPage() {
       <ImportRepoModal
         opened={modalOpened}
         onClose={() => setModalOpened(false)}
+      />
+
+      <SwitchBranchModal
+        opened={Boolean(branchModalRepo)}
+        onClose={() => setBranchModalRepo(null)}
+        repo={branchModalRepo}
       />
     </Container>
   );

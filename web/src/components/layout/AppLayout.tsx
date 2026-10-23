@@ -14,6 +14,7 @@ import {
   IconHome,
   IconDatabaseImport,
   IconSettings,
+  IconMessageCode,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -34,7 +35,7 @@ export function AppLayout({
         breakpoint: "sm",
         collapsed: { mobile: !opened },
       }}
-      padding="md"
+      padding={pathname?.startsWith('/chat') ? 0 : 'md'}
     >
       <AppShell.Header>
         <Group h="100%" px="md" justify="space-between">
@@ -67,6 +68,14 @@ export function AppLayout({
           label="Dashboard"
           leftSection={<IconHome size="1rem" stroke={1.5} />}
           active={pathname?.startsWith("/dashboard")}
+          onClick={() => opened && toggle()}
+        />
+        <NavLink
+          component={Link}
+          href="/chat"
+          label="Codebase Chat"
+          leftSection={<IconMessageCode size="1rem" stroke={1.5} />}
+          active={pathname?.startsWith("/chat")}
           onClick={() => opened && toggle()}
         />
         <NavLink

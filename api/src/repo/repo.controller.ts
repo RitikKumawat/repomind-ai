@@ -7,13 +7,18 @@ import {
   Query,
   Res,
   NotFoundException,
+  BadRequestException,
 } from '@nestjs/common';
 import type { Response } from 'express';
 import { RepoService } from './repo.service';
 import { User } from '../auth/decorators/user.decorator';
 import type { AuthenticatedUser } from '../auth/interfaces/auth.interfaces';
 import { Public } from '../auth/decorators/public.decorator';
-import { ImportRepoDto, UpdateRepoStatusWebhookDto } from './dto/repo.dto';
+import {
+  ImportRepoDto,
+  UpdateRepoStatusWebhookDto,
+  SwitchBranchDto,
+} from './dto/repo.dto';
 import { ConfigService } from '@nestjs/config';
 
 @Controller('repo')
@@ -60,6 +65,17 @@ export class RepoController {
     return this.repoService.getUserGithubRepos(user.id);
   }
 
+  @Get('github/branches')
+  async getGithubBranches(
+    @User() user: AuthenticatedUser,
+    @Query('repoFullName') repoFullName: string,
+  ) {
+    if (!repoFullName) {
+      throw new BadRequestException('repoFullName query parameter is required');
+    }
+    return this.repoService.getGithubRepoBranches(user.id, repoFullName);
+  }
+
   @Post('import')
   async importRepo(
     @User() user: AuthenticatedUser,
@@ -71,6 +87,23 @@ export class RepoController {
   @Post(':id/retry')
   async retryRepo(@User() user: AuthenticatedUser, @Param('id') id: string) {
     return this.repoService.retryIngest(user.id, id);
+  }
+
+  @Get(':id/branches')
+  async getRepoBranches(
+    @User() user: AuthenticatedUser,
+    @Param('id') id: string,
+  ) {
+    return this.repoService.getImportedRepoBranches(user.id, id);
+  }
+
+  @Post(':id/switch-branch')
+  async switchBranch(
+    @User() user: AuthenticatedUser,
+    @Param('id') id: string,
+    @Body() body: SwitchBranchDto,
+  ) {
+    return this.repoService.switchBranch(user.id, id, body.branch);
   }
 
   @Get()
@@ -94,6 +127,18 @@ export class RepoController {
       throw new NotFoundException('Repository not found');
     }
     return repo;
+  }
+
+  @Get(':id/file')
+  async getFile(
+    @User() user: AuthenticatedUser,
+    @Param('id') id: string,
+    @Query('path') filePath: string,
+  ) {
+    if (!filePath) {
+      throw new BadRequestException('Query parameter "path" is required');
+    }
+    return this.repoService.getFileContent(user.id, id, filePath);
   }
 
   @Public()
