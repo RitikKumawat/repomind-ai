@@ -10,9 +10,11 @@ import { RepositoryFile } from './entities/repository-file.entity';
 import { Chat } from './entities/chat.entity';
 import { ChatSession } from './entities/chat-session.entity';
 import { ChatMessage } from './entities/chat-message.entity';
+import { RepositoryInsight } from './entities/repository-insight.entity';
 import { RepoModule } from './repo/repo.module';
 import { AuthModule } from './auth/auth.module';
 import { ChatModule } from './chat/chat.module';
+import { InsightsModule } from './insights/insights.module';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 
 @Module({
@@ -32,6 +34,7 @@ import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
         Chat,
         ChatSession,
         ChatMessage,
+        RepositoryInsight,
       ],
       synchronize: true, // Auto-create tables (for dev only)
     }),
@@ -39,6 +42,7 @@ import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
     RepoModule,
     AuthModule,
     ChatModule,
+    InsightsModule,
   ],
   controllers: [AppController],
   providers: [

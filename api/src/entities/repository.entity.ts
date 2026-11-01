@@ -11,6 +11,7 @@ import { type User } from './user.entity';
 import { type RepositoryFile } from './repository-file.entity';
 import { type Chat } from './chat.entity';
 import { type ChatSession } from './chat-session.entity';
+import { type RepositoryInsight } from './repository-insight.entity';
 import { RepoStatus, IndexingPhase } from '../enums';
 
 @Entity()
@@ -68,4 +69,10 @@ export class Repository {
 
   @OneToMany('ChatSession', (session: Relation<ChatSession>) => session.repo)
   chatSessions: Relation<ChatSession>[];
+
+  @OneToMany(
+    'RepositoryInsight',
+    (insight: Relation<RepositoryInsight>) => insight.repo,
+  )
+  insights: Relation<RepositoryInsight>[];
 }

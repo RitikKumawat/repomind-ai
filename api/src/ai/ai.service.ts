@@ -69,4 +69,49 @@ export class AiService {
     );
     return response.data;
   }
+
+  async generateArchitecture(
+    repoId: string,
+    branch?: string,
+  ): Promise<Record<string, unknown>> {
+    const aiUrl = process.env.AI_SERVICE_URL || 'http://localhost:8000';
+    const response = await firstValueFrom(
+      this.httpService.post<Record<string, unknown>>(
+        `${aiUrl}/ai/insights/architecture`,
+        { repoId, branch },
+        { timeout: 60000 },
+      ),
+    );
+    return response.data;
+  }
+
+  async generateApiDocs(
+    repoId: string,
+    branch?: string,
+  ): Promise<Record<string, unknown>[]> {
+    const aiUrl = process.env.AI_SERVICE_URL || 'http://localhost:8000';
+    const response = await firstValueFrom(
+      this.httpService.post<{ endpoints: Record<string, unknown>[] }>(
+        `${aiUrl}/ai/insights/api-docs`,
+        { repoId, branch },
+        { timeout: 60000 },
+      ),
+    );
+    return response.data?.endpoints || [];
+  }
+
+  async generateOnboardingGuide(
+    repoId: string,
+    branch?: string,
+  ): Promise<string> {
+    const aiUrl = process.env.AI_SERVICE_URL || 'http://localhost:8000';
+    const response = await firstValueFrom(
+      this.httpService.post<{ markdown: string }>(
+        `${aiUrl}/ai/insights/onboarding`,
+        { repoId, branch },
+        { timeout: 60000 },
+      ),
+    );
+    return response.data?.markdown || '';
+  }
 }

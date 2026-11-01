@@ -7,6 +7,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from app.routes.chat import router as chat_router
 from app.routes.ingest import router as ingest_router
+from app.routes.insights import router as insights_router
 from app.services.ingestion import notify_shutdown_abort
 
 @asynccontextmanager
@@ -29,6 +30,12 @@ app.include_router(
 
 app.include_router(
     ingest_router,
+    prefix="/ai",
+    tags=["AI"],
+)
+
+app.include_router(
+    insights_router,
     prefix="/ai",
     tags=["AI"],
 )

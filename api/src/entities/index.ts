@@ -4,3 +4,4 @@ export * from './repository-file.entity';
 export * from './chat.entity';
 export * from './chat-session.entity';
 export * from './chat-message.entity';
+export * from './repository-insight.entity';

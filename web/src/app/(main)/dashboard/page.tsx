@@ -33,6 +33,7 @@ import {
   IconRefresh,
   IconCircleCheck,
   IconCircleDot,
+  IconTopologyStarRing3,
 } from '@tabler/icons-react';
 import { FButton } from '@/components/ui/FButton';
 import { useAuth } from '@/contexts/AuthContext';
@@ -453,12 +454,22 @@ export default function DashboardPage() {
                     <Group gap="xs">
                       <FButton
                         component={Link}
+                        href={`/repo/${repo.id}`}
+                        size="xs"
+                        variant="filled"
+                        color="indigo"
+                        leftSection={<IconTopologyStarRing3 size={14} />}
+                      >
+                        Insights & Docs
+                      </FButton>
+                      <FButton
+                        component={Link}
                         href={`/chat?repoId=${repo.id}`}
                         size="xs"
                         variant="light"
                         leftSection={<IconMessageCode size={14} />}
                       >
-                        Codebase Chat
+                        Chat
                       </FButton>
                       <FButton
                         size="xs"
