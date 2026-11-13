@@ -9,13 +9,12 @@ export default function AuthLayout({
     <GuestGuard>
       <div
         style={{
-          minHeight: '100vh',
-          height: '100vh',
+          minHeight: '100dvh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: '16px',
+          padding: '24px 16px',
           position: 'relative',
           backgroundColor: '#F8FAFC',
           backgroundImage: `

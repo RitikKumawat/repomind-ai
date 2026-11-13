@@ -74,10 +74,16 @@ export function RagComparisonSection() {
           <Badge size="md" variant="light" color="blue" radius="sm">
             THE ARCHITECTURAL DIFFERENCE
           </Badge>
-          <Title order={2} size="2.4rem" fw={800} c="#0F172A" lts={-0.8}>
+          <Title
+            order={2}
+            fw={800}
+            c="#0F172A"
+            lts={-0.8}
+            style={{ fontSize: 'clamp(1.75rem, 4vw, 2.4rem)' }}
+          >
             Why Naive Code RAG Fails in Enterprise Repositories
           </Title>
-          <Text size="md" c="#64748B" maw={680}>
+          <Text fz={{ base: 'sm', sm: 'md' }} c="#64748B" maw={680}>
             Generic AI wrappers slice code by character counts. RepoMind parses concrete syntax trees so the LLM receives pristine, architecturally coherent code blocks.
           </Text>
         </Stack>
@@ -86,7 +92,7 @@ export function RagComparisonSection() {
           {/* Column 1: The Naive Character-Splitting Approach */}
           <Paper
             withBorder
-            p="xl"
+            p={{ base: 'md', sm: 'xl' }}
             radius="lg"
             style={{
               backgroundColor: '#FEF2F2',
@@ -151,7 +157,7 @@ export function RagComparisonSection() {
           {/* Column 2: The RepoMind AST-Aware Solution */}
           <Paper
             withBorder
-            p="xl"
+            p={{ base: 'md', sm: 'xl' }}
             radius="lg"
             style={{
               backgroundColor: '#F0FDF4',

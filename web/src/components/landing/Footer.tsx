@@ -47,15 +47,22 @@ export function Footer() {
               ENGINEERED FOR MODERN CODEBASES
             </Badge>
 
-            <Title order={2} size="2.4rem" fw={900} c="#FFFFFF" lts={-0.8} maw={680}>
+            <Title
+              order={2}
+              fw={900}
+              c="#FFFFFF"
+              lts={-0.8}
+              maw={680}
+              style={{ fontSize: 'clamp(1.75rem, 4vw, 2.4rem)' }}
+            >
               Ready to Inspect Codebases with True Architectural Clarity?
             </Title>
 
-            <Text size="md" c="#94A3B8" maw={580} lh={1.6}>
+            <Text fz={{ base: 'sm', sm: 'md' }} c="#94A3B8" maw={580} lh={1.6}>
               Deploy RepoMind locally or connect your GitHub repository to generate interactive Mermaid topologies and AST route documentation in seconds.
             </Text>
 
-            <Group gap="md" mt="sm" wrap="wrap" justify="center">
+            <Group gap="md" mt="sm" wrap="wrap" justify="center" w={{ base: '100%', sm: 'auto' }}>
               <FButton
                 size="lg"
                 radius="md"
@@ -63,6 +70,7 @@ export function Footer() {
                 href={user ? '/dashboard' : '/login'}
                 rightSection={<IconArrowRight size={18} />}
                 px="xl"
+                w={{ base: '100%', sm: 'auto' }}
                 style={{
                   boxShadow: '0 4px 14px rgba(28, 126, 214, 0.4)',
                 }}
@@ -80,6 +88,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 leftSection={<IconFileText size={18} />}
                 px="xl"
+                w={{ base: '100%', sm: 'auto' }}
                 style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.08)',
                   borderColor: '#475569',

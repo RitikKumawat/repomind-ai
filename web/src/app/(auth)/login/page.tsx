@@ -86,7 +86,7 @@ export default function LoginPage() {
       {/* Main Authentication Card */}
       <Paper
         withBorder
-        p={{ base: 20, sm: 26 }}
+        p={{ base: 18, sm: 26 }}
         radius="lg"
         style={{
           width: '100%',

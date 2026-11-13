@@ -98,10 +98,16 @@ export function ArchitectureSection() {
           <Badge size="md" variant="light" color="blue" radius="sm">
             SYSTEM ARCHITECTURE
           </Badge>
-          <Title order={2} size="2.4rem" fw={800} c="#0F172A" lts={-0.8}>
+          <Title
+            order={2}
+            fw={800}
+            c="#0F172A"
+            lts={-0.8}
+            style={{ fontSize: 'clamp(1.75rem, 4vw, 2.4rem)' }}
+          >
             Engineered as a Scalable Distributed Microservices System
           </Title>
-          <Text size="md" c="#64748B" maw={680}>
+          <Text fz={{ base: 'sm', sm: 'md' }} c="#64748B" maw={680}>
             RepoMind decouples static code analysis, background queuing, and vector search into specialized services built with the right tools for each workload.
           </Text>
         </Stack>
@@ -112,7 +118,7 @@ export function ArchitectureSection() {
             <Paper
               key={idx}
               withBorder
-              p="xl"
+              p={{ base: 'md', sm: 'xl' }}
               radius="md"
               style={{
                 backgroundColor: '#FFFFFF',
@@ -173,7 +179,7 @@ export function ArchitectureSection() {
         {/* High-Resolution System Architecture Blueprint Preview Card */}
         <Paper
           withBorder
-          p="lg"
+          p={{ base: 'md', sm: 'lg' }}
           radius="lg"
           style={{
             backgroundColor: '#0F172A',

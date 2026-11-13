@@ -116,12 +116,44 @@ section[id] {
   }
 
   @media (max-width: 600px) {
-    top: 12px;
-    left: 14px;
-    padding: 4px 8px;
-    font-size: 0.75rem;
+    position: static;
+    margin-bottom: 12px;
+    align-self: flex-start;
+    padding: 5px 10px;
+    font-size: 0.78rem;
   }
 }
+
+// Hero Engineering Status Pill Responsive Toggle
+.hero-pill-full,
+.hero-badge-full {
+  display: inline;
+}
+
+.hero-pill-compact,
+.hero-badge-compact {
+  display: none;
+}
+
+@media (max-width: 540px) {
+  .hero-pill-full,
+  .hero-badge-full {
+    display: none;
+  }
+  .hero-pill-compact,
+  .hero-badge-compact {
+    display: inline;
+  }
+}
+
+// Smooth horizontal touch scrolling for tabs and tables
+.scrollable-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+
 
 
 

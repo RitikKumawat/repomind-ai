@@ -40,7 +40,7 @@ export function WhitepaperSection() {
       <Container size="lg">
         <Paper
           withBorder
-          p="xl"
+          p={{ base: 'md', sm: 'xl' }}
           radius="lg"
           style={{
             backgroundColor: '#FFFFFF',
@@ -60,7 +60,13 @@ export function WhitepaperSection() {
                 </Text>
               </Group>
 
-              <Title order={2} size="2rem" fw={800} c="#0F172A" lts={-0.6}>
+              <Title
+                order={2}
+                fw={800}
+                c="#0F172A"
+                lts={-0.6}
+                style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)' }}
+              >
                 RepoMind AI Architecture & Case Study
               </Title>
 
@@ -79,7 +85,7 @@ export function WhitepaperSection() {
                 ))}
               </Stack>
 
-              <Group gap="sm" mt="md" wrap="wrap">
+              <Group gap="sm" mt="md" wrap="wrap" w={{ base: '100%', sm: 'auto' }}>
                 <FButton
                   size="md"
                   radius="md"
@@ -88,6 +94,7 @@ export function WhitepaperSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   leftSection={<IconDownload size={18} />}
+                  w={{ base: '100%', sm: 'auto' }}
                   style={{ boxShadow: '0 4px 12px rgba(28, 126, 214, 0.25)' }}
                 >
                   Download PDF Whitepaper
@@ -102,6 +109,7 @@ export function WhitepaperSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   leftSection={<IconExternalLink size={16} />}
+                  w={{ base: '100%', sm: 'auto' }}
                 >
                   Read in Browser
                 </FButton>
@@ -111,7 +119,7 @@ export function WhitepaperSection() {
             {/* Right Column: Visual Document Preview Card */}
             <Paper
               withBorder
-              p="xl"
+              p={{ base: 'md', sm: 'xl' }}
               radius="md"
               style={{
                 backgroundColor: '#0F172A',

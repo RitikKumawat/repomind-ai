@@ -80,13 +80,15 @@ export function HeroSection() {
           {/* Engineering Status Pill */}
           <Group
             gap={8}
-            px={14}
+            px={{ base: 10, sm: 14 }}
             py={6}
+            wrap="nowrap"
             style={{
               backgroundColor: '#FFFFFF',
               border: '1px solid #CBD5E1',
               borderRadius: 9999,
               boxShadow: '0 2px 6px rgba(0, 0, 0, 0.04)',
+              maxWidth: '100%',
             }}
           >
             <span
@@ -97,13 +99,16 @@ export function HeroSection() {
                 backgroundColor: '#10B981',
                 boxShadow: '0 0 0 3px rgba(16, 185, 129, 0.2)',
                 display: 'inline-block',
+                flexShrink: 0,
               }}
             />
-            <Text size="xs" fw={700} c="#334155" lts={0.5}>
-              AST-AWARE CODEBASE INTELLIGENCE & ARCHITECTURE ENGINE
+            <Text size="xs" fw={700} c="#334155" lts={0.4} style={{ textAlign: 'center', lineHeight: 1.2 }}>
+              <span className="hero-pill-full">AST-AWARE CODEBASE INTELLIGENCE & ARCHITECTURE ENGINE</span>
+              <span className="hero-pill-compact">AST-AWARE CODEBASE INTELLIGENCE</span>
             </Text>
-            <Badge size="xs" variant="light" color="blue" radius="xl">
-              v1.2 Prod
+            <Badge size="xs" variant="light" color="blue" radius="xl" style={{ flexShrink: 0 }}>
+              <span className="hero-badge-full">v1.2 Prod</span>
+              <span className="hero-badge-compact">v1.2</span>
             </Badge>
           </Group>
 
@@ -116,7 +121,7 @@ export function HeroSection() {
             c="#0F172A"
             maw={840}
             style={{
-              fontSize: 'clamp(2.25rem, 5.5vw, 3.6rem)',
+              fontSize: 'clamp(1.9rem, 5.5vw, 3.6rem)',
             }}
           >
             Don&apos;t just query codebases.{' '}
@@ -133,7 +138,7 @@ export function HeroSection() {
           </Title>
 
           {/* Technical Subheadline */}
-          <Text size="xl" c="#64748B" maw={740} lh={1.6} fw={450}>
+          <Text fz={{ base: 'md', sm: 'xl' }} c="#64748B" maw={740} lh={1.6} fw={450}>
             An enterprise repository intelligence platform that statically extracts{' '}
             <strong style={{ color: '#1E293B', fontWeight: 650 }}>
               Abstract Syntax Trees (AST)
@@ -146,7 +151,7 @@ export function HeroSection() {
           </Text>
 
           {/* Action CTAs */}
-          <Group gap="md" mt="sm" wrap="wrap" justify="center">
+          <Group gap="md" mt="sm" wrap="wrap" justify="center" w={{ base: '100%', sm: 'auto' }}>
             <FButton
               size="lg"
               radius="md"
@@ -154,6 +159,7 @@ export function HeroSection() {
               href={user ? '/dashboard' : '/login'}
               rightSection={<IconArrowRight size={18} />}
               px="xl"
+              w={{ base: '100%', sm: 'auto' }}
               style={{
                 boxShadow: '0 4px 14px rgba(28, 126, 214, 0.35)',
               }}
@@ -169,6 +175,7 @@ export function HeroSection() {
               href="#sandbox"
               leftSection={<IconSparkles size={18} color="#1C7ED6" />}
               px="xl"
+              w={{ base: '100%', sm: 'auto' }}
             >
               Explore Live Sandbox
             </FButton>
@@ -183,6 +190,7 @@ export function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
               leftSection={<IconDownload size={18} />}
+              w={{ base: '100%', sm: 'auto' }}
             >
               Whitepaper (PDF)
             </FButton>
@@ -204,7 +212,7 @@ export function HeroSection() {
             }}
           >
             <Group justify="space-between" wrap="nowrap">
-              <Group gap={8} wrap="nowrap">
+              <Group gap={8} wrap="nowrap" style={{ flex: 1, minWidth: 0 }}>
                 <Group gap={6} mr="xs">
                   <span
                     style={{

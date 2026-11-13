@@ -87,10 +87,16 @@ export function TechStackSection() {
           <Badge size="md" variant="light" color="blue" radius="sm">
             ENGINEERING FOUNDATION
           </Badge>
-          <Title order={2} size="2.4rem" fw={800} c="#0F172A" lts={-0.8}>
+          <Title
+            order={2}
+            fw={800}
+            c="#0F172A"
+            lts={-0.8}
+            style={{ fontSize: 'clamp(1.75rem, 4vw, 2.4rem)' }}
+          >
             Built with Battle-Tested Technologies
           </Title>
-          <Text size="md" c="#64748B" maw={680}>
+          <Text fz={{ base: 'sm', sm: 'md' }} c="#64748B" maw={680}>
             No fragile prototype scripts. Every layer is built with production-ready, type-safe, and scalable enterprise frameworks.
           </Text>
         </Stack>

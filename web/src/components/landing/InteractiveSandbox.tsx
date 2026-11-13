@@ -7,6 +7,7 @@ import {
   Tabs,
   Group,
   Text,
+  Title,
   Badge,
   Stack,
   ActionIcon,
@@ -106,10 +107,16 @@ async streamChatMessage(@Body() dto: ChatMessageDto, @Res() res: Response) {
           <Badge size="md" variant="light" color="blue" radius="sm">
             LIVE PRODUCT SANDBOX
           </Badge>
-          <Text fw={800} size="2.4rem" c="#0F172A" lts={-0.8}>
+          <Title
+            order={2}
+            fw={800}
+            c="#0F172A"
+            lts={-0.8}
+            style={{ fontSize: 'clamp(1.75rem, 4vw, 2.4rem)' }}
+          >
             Experience RepoMind Before You Deploy
-          </Text>
-          <Text size="md" c="#64748B" maw={640}>
+          </Title>
+          <Text fz={{ base: 'sm', sm: 'md' }} c="#64748B" maw={640}>
             Interact with actual system output: explore the live topology graph, inspect AST-extracted API specs, and review line-level code citations.
           </Text>
         </Stack>
@@ -129,47 +136,52 @@ async streamChatMessage(@Body() dto: ChatMessageDto, @Res() res: Response) {
           <div
             style={{
               backgroundColor: '#0F172A',
-              padding: '12px 20px',
+              padding: '12px 16px',
               borderBottom: '1px solid #1E293B',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: 8,
             }}
           >
-            <Group gap={8}>
+            <Group gap={8} wrap="nowrap" style={{ flex: 1, minWidth: 0 }}>
               <span
                 style={{
-                  width: 12,
-                  height: 12,
+                  width: 10,
+                  height: 10,
                   borderRadius: '50%',
                   backgroundColor: '#EF4444',
                   display: 'inline-block',
+                  flexShrink: 0,
                 }}
               />
               <span
                 style={{
-                  width: 12,
-                  height: 12,
+                  width: 10,
+                  height: 10,
                   borderRadius: '50%',
                   backgroundColor: '#F59E0B',
                   display: 'inline-block',
+                  flexShrink: 0,
                 }}
               />
               <span
                 style={{
-                  width: 12,
-                  height: 12,
+                  width: 10,
+                  height: 10,
                   borderRadius: '50%',
                   backgroundColor: '#10B981',
                   display: 'inline-block',
+                  flexShrink: 0,
                 }}
               />
-              <Text size="xs" c="#94A3B8" ff="monospace" ml="sm" fw={600}>
+              <Text size="xs" c="#94A3B8" ff="monospace" ml={4} fw={600} style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1, minWidth: 0 }}>
                 workspace://repomind-ai/react-core-branch-main
               </Text>
             </Group>
 
-            <Group gap="xs">
+            <Group gap="xs" visibleFrom="xs">
               <Badge size="xs" variant="outline" color="gray" radius="sm" c="#CBD5E1">
                 Branch: main
               </Badge>
@@ -189,16 +201,20 @@ async streamChatMessage(@Body() dto: ChatMessageDto, @Res() res: Response) {
               root: { display: 'flex', flexDirection: 'column' },
               list: {
                 backgroundColor: '#F1F5F9',
-                padding: '6px 16px 0 16px',
+                padding: '6px 12px 0 12px',
                 borderBottom: '1px solid #E2E8F0',
                 gap: 6,
+                overflowX: 'auto',
+                flexWrap: 'nowrap',
               },
               tab: {
                 fontWeight: 650,
                 fontSize: '0.85rem',
                 borderTopLeftRadius: 6,
                 borderTopRightRadius: 6,
-                padding: '8px 16px',
+                padding: '8px 14px',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
               },
             }}
           >
@@ -218,7 +234,7 @@ async streamChatMessage(@Body() dto: ChatMessageDto, @Res() res: Response) {
             </Tabs.List>
 
             {/* TAB 1: ARCHITECTURE TOPOLOGY */}
-            <Tabs.Panel value="topology" p="xl" style={{ minHeight: 460 }}>
+            <Tabs.Panel value="topology" p={{ base: 'md', sm: 'xl' }} style={{ minHeight: 440 }}>
               <Group justify="space-between" mb="lg">
                 <Stack gap={2}>
                   <Text fw={700} size="md" c="#0F172A">
@@ -454,7 +470,7 @@ async streamChatMessage(@Body() dto: ChatMessageDto, @Res() res: Response) {
             </Tabs.Panel>
 
             {/* TAB 2: AST API ROUTE EXPLORER */}
-            <Tabs.Panel value="api-explorer" p="xl" style={{ minHeight: 460 }}>
+            <Tabs.Panel value="api-explorer" p={{ base: 'md', sm: 'xl' }} style={{ minHeight: 460 }}>
               <Group justify="space-between" mb="md">
                 <Stack gap={2}>
                   <Text fw={700} size="md" c="#0F172A">
@@ -589,10 +605,10 @@ async streamChatMessage(@Body() dto: ChatMessageDto, @Res() res: Response) {
             </Tabs.Panel>
 
             {/* TAB 3: CODEBASE RAG & CITATIONS */}
-            <Tabs.Panel value="rag-chat" p="xl" style={{ minHeight: 460 }}>
+            <Tabs.Panel value="rag-chat" p={{ base: 'md', sm: 'xl' }} style={{ minHeight: 460 }}>
               <Stack gap="md">
                 {/* User Prompt */}
-                <Group align="flex-start" gap="sm">
+                <Group align="flex-start" gap="sm" wrap="nowrap">
                   <div
                     style={{
                       width: 32,
@@ -605,6 +621,7 @@ async streamChatMessage(@Body() dto: ChatMessageDto, @Res() res: Response) {
                       fontSize: '12px',
                       fontWeight: 700,
                       color: '#475569',
+                      flexShrink: 0,
                     }}
                   >
                     DEV
@@ -614,7 +631,7 @@ async streamChatMessage(@Body() dto: ChatMessageDto, @Res() res: Response) {
                     p="sm"
                     radius="md"
                     bg="#F8FAFC"
-                    style={{ maxWidth: 640 }}
+                    style={{ maxWidth: 640, flex: 1, minWidth: 0 }}
                   >
                     <Text size="sm" fw={600} c="#1E293B">
                       How does RepoMind AI avoid re-indexing unchanged files when switching between repository branches?
@@ -623,7 +640,7 @@ async streamChatMessage(@Body() dto: ChatMessageDto, @Res() res: Response) {
                 </Group>
 
                 {/* Assistant RAG Response */}
-                <Group align="flex-start" gap="sm">
+                <Group align="flex-start" gap="sm" wrap="nowrap">
                   <div
                     style={{
                       width: 32,
@@ -634,6 +651,7 @@ async streamChatMessage(@Body() dto: ChatMessageDto, @Res() res: Response) {
                       alignItems: 'center',
                       justifyContent: 'center',
                       color: '#FFFFFF',
+                      flexShrink: 0,
                     }}
                   >
                     <IconBrain size={18} />
@@ -645,6 +663,8 @@ async streamChatMessage(@Body() dto: ChatMessageDto, @Res() res: Response) {
                     bg="#FFFFFF"
                     style={{
                       maxWidth: 700,
+                      flex: 1,
+                      minWidth: 0,
                       borderColor: '#CBD5E1',
                       boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
                     }}
@@ -684,10 +704,10 @@ async streamChatMessage(@Body() dto: ChatMessageDto, @Res() res: Response) {
                       }}
                       onClick={() => setChatCitationOpen(!chatCitationOpen)}
                     >
-                      <Group justify="space-between">
-                        <Group gap="xs">
-                          <IconFileCode size={15} color="#1C7ED6" />
-                          <Text size="xs" fw={700} c="#1E40AF" ff="monospace">
+                      <Group justify="space-between" wrap="wrap" gap="xs">
+                        <Group gap="xs" wrap="wrap">
+                          <IconFileCode size={15} color="#1C7ED6" style={{ flexShrink: 0 }} />
+                          <Text size="xs" fw={700} c="#1E40AF" ff="monospace" style={{ wordBreak: 'break-all' }}>
                             services/indexer/delta_chunker.py:104-138
                           </Text>
                           <Badge size="xs" color="blue" variant="filled">
@@ -728,7 +748,7 @@ async streamChatMessage(@Body() dto: ChatMessageDto, @Res() res: Response) {
             </Tabs.Panel>
 
             {/* TAB 4: AUTOMATED SETUP HANDBOOK */}
-            <Tabs.Panel value="handbook" p="xl" style={{ minHeight: 460 }}>
+            <Tabs.Panel value="handbook" p={{ base: 'md', sm: 'xl' }} style={{ minHeight: 460 }}>
               <Stack gap="md">
                 <Group justify="space-between">
                   <Stack gap={2}>

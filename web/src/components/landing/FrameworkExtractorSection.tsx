@@ -152,10 +152,16 @@ public class OrderController {
           <Badge size="md" variant="light" color="blue" radius="sm">
             STATIC AST RECOGNITION
           </Badge>
-          <Title order={2} size="2.4rem" fw={800} c="#0F172A" lts={-0.8}>
+          <Title
+            order={2}
+            fw={800}
+            c="#0F172A"
+            lts={-0.8}
+            style={{ fontSize: 'clamp(1.75rem, 4vw, 2.4rem)' }}
+          >
             Multi-Framework Static Route Extraction
           </Title>
-          <Text size="md" c="#64748B" maw={700}>
+          <Text fz={{ base: 'sm', sm: 'md' }} c="#64748B" maw={700}>
             Zero sandbox execution vulnerabilities. RepoMind extracts exact routes, parameter schemas, and guards statically from raw code syntax trees across multiple languages.
           </Text>
         </Stack>

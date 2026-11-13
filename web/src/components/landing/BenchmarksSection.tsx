@@ -83,10 +83,16 @@ export function BenchmarksSection() {
           <Badge size="md" variant="light" color="blue" radius="sm">
             RIGOROUS EVALUATION
           </Badge>
-          <Title order={2} size="2.4rem" fw={800} c="#0F172A" lts={-0.8}>
+          <Title
+            order={2}
+            fw={800}
+            c="#0F172A"
+            lts={-0.8}
+            style={{ fontSize: 'clamp(1.75rem, 4vw, 2.4rem)' }}
+          >
             Empirical Retrieval & Ingestion Benchmarks
           </Title>
-          <Text size="md" c="#64748B" maw={680}>
+          <Text fz={{ base: 'sm', sm: 'md' }} c="#64748B" maw={680}>
             Tested across real-world monorepos (React, NestJS core, FastAPI examples) against standard industry baselines.
           </Text>
         </Stack>
@@ -101,7 +107,8 @@ export function BenchmarksSection() {
             overflow: 'hidden',
           }}
         >
-          <Table
+          <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+            <Table
             striped
             highlightOnHover
             verticalSpacing="md"
@@ -162,6 +169,7 @@ export function BenchmarksSection() {
               ))}
             </Table.Tbody>
           </Table>
+          </div>
         </Paper>
 
         {/* Small Summary Callout */}
