@@ -1,0 +1,1658 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R 9 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R
+   /MediaBox [0 0 595.28 841.89]
+   /Resources << /Font << /F1 11 0 R /F2 12 0 R /F3 13 0 R /F4 14 0 R >> >>
+   /Contents 4 0 R
+>>
+endobj
+4 0 obj
+<< /Length 8360 >>
+stream
+0.040 0.060 0.100 rg
+0.00 0.00 595.28 841.89 re
+f
+0.110 0.490 0.840 rg
+0.00 836.89 595.28 5.00 re
+f
+0.118 0.161 0.231 rg
+0.200 0.255 0.333 RG
+45.00 782.00 230.00 20.00 re
+B
+BT
+0.580 0.640 0.950 rg
+/F2 8.5 Tf
+1 0 0 1 55.00 788.00 Tm
+(TECHNICAL ARCHITECTURE CASE STUDY) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 26 Tf
+1 0 0 1 45.00 742.00 Tm
+(RepoMind AI) Tj
+ET
+BT
+0.800 0.850 0.950 rg
+/F1 18 Tf
+1 0 0 1 210.00 742.00 Tm
+(-- Enterprise Codebase Intelligence) Tj
+ET
+BT
+0.580 0.640 0.720 rg
+/F1 10.5 Tf
+1 0 0 1 45.00 720.00 Tm
+(Agentic RAG, AST-Aware Retrieval & Automated Developer Intelligence) Tj
+ET
+1.00 w
+0.200 0.250 0.350 RG
+45.00 705.00 m
+550.00 705.00 l
+S
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+45.00 664.00 505.00 30.00 re
+B
+BT
+0.388 0.714 0.973 rg
+/F2 9 Tf
+1 0 0 1 55.00 675.00 Tm
+(Role: Lead Full-Stack AI Engineer & Architect) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 9 Tf
+1 0 0 1 315.00 675.00 Tm
+(Date: October 2026) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 9 Tf
+1 0 0 1 420.00 675.00 Tm
+(Category: LLM & Generative AI) Tj
+ET
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+45.00 594.00 118.00 56.00 re
+B
+0.388 0.400 0.945 rg
+45.00 648.00 118.00 2.00 re
+f
+BT
+0.388 0.400 0.945 rg
+/F2 13 Tf
+1 0 0 1 55.00 626.00 Tm
+(< 350ms) Tj
+ET
+BT
+0.900 0.920 0.980 rg
+/F2 7 Tf
+1 0 0 1 55.00 612.00 Tm
+(HYBRID RETRIEVAL) Tj
+ET
+BT
+0.500 0.550 0.650 rg
+/F1 6.5 Tf
+1 0 0 1 55.00 602.00 Tm
+(Dense + BM25 Qdrant) Tj
+ET
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+174.00 594.00 118.00 56.00 re
+B
+0.024 0.714 0.831 rg
+174.00 648.00 118.00 2.00 re
+f
+BT
+0.024 0.714 0.831 rg
+/F2 13 Tf
+1 0 0 1 184.00 626.00 Tm
+(99.8%) Tj
+ET
+BT
+0.900 0.920 0.980 rg
+/F2 7 Tf
+1 0 0 1 184.00 612.00 Tm
+(AST PARSE ACCURACY) Tj
+ET
+BT
+0.500 0.550 0.650 rg
+/F1 6.5 Tf
+1 0 0 1 184.00 602.00 Tm
+(Zero syntax truncation) Tj
+ET
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+303.00 594.00 118.00 56.00 re
+B
+0.063 0.725 0.506 rg
+303.00 648.00 118.00 2.00 re
+f
+BT
+0.063 0.725 0.506 rg
+/F2 13 Tf
+1 0 0 1 313.00 626.00 Tm
+(62% Less) Tj
+ET
+BT
+0.900 0.920 0.980 rg
+/F2 7 Tf
+1 0 0 1 313.00 612.00 Tm
+(TOKEN COST REDUCTION) Tj
+ET
+BT
+0.500 0.550 0.650 rg
+/F1 6.5 Tf
+1 0 0 1 313.00 602.00 Tm
+(Branch-aware cache) Tj
+ET
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+432.00 594.00 118.00 56.00 re
+B
+0.961 0.620 0.043 rg
+432.00 648.00 118.00 2.00 re
+f
+BT
+0.961 0.620 0.043 rg
+/F2 13 Tf
+1 0 0 1 442.00 626.00 Tm
+(5+ Stacks) Tj
+ET
+BT
+0.900 0.920 0.980 rg
+/F2 7 Tf
+1 0 0 1 442.00 612.00 Tm
+(FRAMEWORK ROUTE AST) Tj
+ET
+BT
+0.500 0.550 0.650 rg
+/F1 6.5 Tf
+1 0 0 1 442.00 602.00 Tm
+(NestJS, FastAPI, Spring) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 12 Tf
+1 0 0 1 45.00 568.00 Tm
+(Executive Summary) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 8.5 Tf
+1 0 0 1 45.00 552.00 Tm
+(Software engineering organizations spend over 30% of their total engineering hours) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 8.5 Tf
+1 0 0 1 45.00 539.50 Tm
+(navigating complex codebases, onboarding new engineers, and reverse-engineering) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 8.5 Tf
+1 0 0 1 45.00 527.00 Tm
+(undocumented API endpoints. Conventional LLM assistants fail on large repositories) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 8.5 Tf
+1 0 0 1 45.00 514.50 Tm
+(because naive chunking slices code across arbitrary token limits, severing function) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 8.5 Tf
+1 0 0 1 45.00 502.00 Tm
+(context and leading to frequent hallucinations.) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 8.5 Tf
+1 0 0 1 45.00 481.50 Tm
+(RepoMind AI resolves this challenge by combining Abstract Syntax Tree \(AST\) boundary) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 8.5 Tf
+1 0 0 1 45.00 469.00 Tm
+(chunking, dual-indexing hybrid vector retrieval in Qdrant, and stateful LangGraph) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 8.5 Tf
+1 0 0 1 45.00 456.50 Tm
+(agentic workflows. The platform automatically synthesizes interactive Mermaid.js) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 8.5 Tf
+1 0 0 1 45.00 444.00 Tm
+(architecture diagrams, parses API routes across 5+ backend frameworks with exact line) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 8.5 Tf
+1 0 0 1 45.00 431.50 Tm
+(citations, and provides verified conversational chat.) Tj
+ET
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+45.00 233.00 246.00 168.00 re
+B
+0.937 0.267 0.267 rg
+45.00 399.00 246.00 2.00 re
+f
+BT
+0.950 0.400 0.400 rg
+/F2 10.5 Tf
+1 0 0 1 55.00 383.00 Tm
+(The Challenge \(Naive Code RAG\)) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 365.00 Tm
+(* Naive character splitting severs logic) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 354.00 Tm
+(boundaries) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 339.00 Tm
+(* Dense-only vector search misses exact) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 328.00 Tm
+(symbol names) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 313.00 Tm
+(* Redundant LLM calls on every tab switch) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 302.00 Tm
+(cause latency) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 287.00 Tm
+(* Developers lack verified line citations to) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 276.00 Tm
+(trust answers) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 261.00 Tm
+(* Manual API and architecture documentation) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 250.00 Tm
+(gets stale) Tj
+ET
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+304.00 233.00 246.00 168.00 re
+B
+0.063 0.725 0.506 rg
+304.00 399.00 246.00 2.00 re
+f
+BT
+0.200 0.800 0.500 rg
+/F2 10.5 Tf
+1 0 0 1 314.00 383.00 Tm
+(The RepoMind Solution \(AST Hybrid\)) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 314.00 365.00 Tm
+(* AST-aware code chunking preserves classes) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 314.00 354.00 Tm
+(& functions) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 314.00 339.00 Tm
+(* Qdrant Hybrid Search \(Dense + BM25\) for) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 314.00 328.00 Tm
+(99.8% precision) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 314.00 313.00 Tm
+(* PostgreSQL insight caching cuts token) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 314.00 302.00 Tm
+(bills by 62%+) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 314.00 287.00 Tm
+(* Direct line-level code citations linked to) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 314.00 276.00 Tm
+(GitHub files) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 314.00 261.00 Tm
+(* On-demand Mermaid diagrams & automated API) Tj
+ET
+BT
+0.700 0.750 0.820 rg
+/F1 7.8 Tf
+1 0 0 1 314.00 250.00 Tm
+(specs) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 11 Tf
+1 0 0 1 45.00 211.00 Tm
+(Platform Core Pillars) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+45.00 129.00 160.00 72.00 re
+B
+BT
+0.388 0.714 0.973 rg
+/F2 9 Tf
+1 0 0 1 55.00 191.00 Tm
+(Agentic RAG) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 177.00 Tm
+(LangGraph orchestrates) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 167.00 Tm
+(domain agents for) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 157.00 Tm
+(architecture, API) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 147.00 Tm
+(documentation, and codebase) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 137.00 Tm
+(search.) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+217.00 129.00 160.00 72.00 re
+B
+BT
+0.388 0.714 0.973 rg
+/F2 9 Tf
+1 0 0 1 227.00 191.00 Tm
+(Interactive Diagrams) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 7.2 Tf
+1 0 0 1 227.00 177.00 Tm
+(Real-time client-side) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 7.2 Tf
+1 0 0 1 227.00 167.00 Tm
+(Mermaid.js rendering with) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 7.2 Tf
+1 0 0 1 227.00 157.00 Tm
+(zoom, pan, and zero-lag DOM) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 7.2 Tf
+1 0 0 1 227.00 147.00 Tm
+(state sync.) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+389.00 129.00 160.00 72.00 re
+B
+BT
+0.388 0.714 0.973 rg
+/F2 9 Tf
+1 0 0 1 399.00 191.00 Tm
+(Multi-Framework AST) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 7.2 Tf
+1 0 0 1 399.00 177.00 Tm
+(Static analysis parses HTTP) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 7.2 Tf
+1 0 0 1 399.00 167.00 Tm
+(verbs, DTO schemas, and auth) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 7.2 Tf
+1 0 0 1 399.00 157.00 Tm
+(guards across 5+ backend) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F1 7.2 Tf
+1 0 0 1 399.00 147.00 Tm
+(stacks.) Tj
+ET
+1.00 w
+0.180 0.220 0.300 RG
+45.00 55.00 m
+550.00 55.00 l
+S
+BT
+0.400 0.450 0.550 rg
+/F1 8 Tf
+1 0 0 1 45.00 40.00 Tm
+(RepoMind AI -- Technical Architecture Whitepaper) Tj
+ET
+BT
+0.400 0.450 0.550 rg
+/F1 8 Tf
+1 0 0 1 505.00 40.00 Tm
+(Page 1 of 4) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R
+   /MediaBox [0 0 595.28 841.89]
+   /Resources << /Font << /F1 11 0 R /F2 12 0 R /F3 13 0 R /F4 14 0 R >> >>
+   /Contents 6 0 R
+>>
+endobj
+6 0 obj
+<< /Length 6780 >>
+stream
+0.040 0.060 0.100 rg
+0.00 0.00 595.28 841.89 re
+f
+0.024 0.714 0.831 rg
+0.00 836.89 595.28 5.00 re
+f
+BT
+0.024 0.714 0.831 rg
+/F2 8.5 Tf
+1 0 0 1 45.00 785.00 Tm
+(SECTION 01) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 19 Tf
+1 0 0 1 45.00 760.00 Tm
+(Distributed System Architecture & Data Flow) Tj
+ET
+BT
+0.580 0.640 0.720 rg
+/F1 9.5 Tf
+1 0 0 1 45.00 742.00 Tm
+(Decoupled microservices architecture designed for sub-second retrieval and resilience) Tj
+ET
+1.00 w
+0.200 0.250 0.350 RG
+45.00 730.00 m
+550.00 730.00 l
+S
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+45.00 640.00 505.00 64.00 re
+B
+0.388 0.400 0.945 rg
+45.00 640.00 4.00 64.00 re
+f
+BT
+1.000 1.000 1.000 rg
+/F2 10 Tf
+1 0 0 1 58.00 690.00 Tm
+(Client Tier \(Next.js 16\)) Tj
+ET
+BT
+0.388 0.400 0.945 rg
+/F4 6.8 Tf
+1 0 0 1 230.00 690.00 Tm
+(Next.js 16 * React 19 * Mantine UI 9 * Mermaid.js * React Query) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 58.00 676.00 Tm
+(Provides an ultra-responsive repository workspace with tabbed navigation, memoized) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 58.00 665.00 Tm
+(Mermaid.js diagram viewer, interactive API explorer, and streaming conversational chat) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 58.00 654.00 Tm
+(with code citations.) Tj
+ET
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+45.00 566.00 505.00 64.00 re
+B
+0.024 0.714 0.831 rg
+45.00 566.00 4.00 64.00 re
+f
+BT
+1.000 1.000 1.000 rg
+/F2 10 Tf
+1 0 0 1 58.00 616.00 Tm
+(API Gateway Tier \(NestJS\)) Tj
+ET
+BT
+0.024 0.714 0.831 rg
+/F4 6.8 Tf
+1 0 0 1 230.00 616.00 Tm
+(NestJS * TypeScript * TypeORM * PostgreSQL * Passport JWT * Axios Proxy) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 58.00 602.00 Tm
+(Manages user authentication, repository cloning, shallow git operations, branch) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 58.00 591.00 Tm
+(re-indexing, and background HTTP proxy communication to the Python AI service with 60s) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 58.00 580.00 Tm
+(timeout resilience.) Tj
+ET
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+45.00 492.00 505.00 64.00 re
+B
+0.063 0.725 0.506 rg
+45.00 492.00 4.00 64.00 re
+f
+BT
+1.000 1.000 1.000 rg
+/F2 10 Tf
+1 0 0 1 58.00 542.00 Tm
+(AI & Retrieval Tier \(FastAPI\)) Tj
+ET
+BT
+0.063 0.725 0.506 rg
+/F4 6.8 Tf
+1 0 0 1 230.00 542.00 Tm
+(Python FastAPI * LangGraph * Tree-sitter AST Chunker * Qdrant * Gemini 2.5) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 58.00 528.00 Tm
+(Handles heavy compute tasks: AST syntax parsing, dual-indexing \(dense embeddings +) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 58.00 517.00 Tm
+(BM25\), reciprocal rank fusion search, framework route detection, and structured) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 58.00 506.00 Tm
+(synthesis.) Tj
+ET
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+45.00 418.00 505.00 64.00 re
+B
+0.961 0.620 0.043 rg
+45.00 418.00 4.00 64.00 re
+f
+BT
+1.000 1.000 1.000 rg
+/F2 10 Tf
+1 0 0 1 58.00 468.00 Tm
+(Persistence & Vector Tier) Tj
+ET
+BT
+0.961 0.620 0.043 rg
+/F4 6.8 Tf
+1 0 0 1 230.00 468.00 Tm
+(Qdrant Vector DB \(HNSW Collection\) * PostgreSQL 16 * Redis Cache) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 58.00 454.00 Tm
+(Stores dense 768-dim embeddings in Qdrant; stores relational entities \(Users,) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 58.00 443.00 Tm
+(Repositories, Files\) and cached insights in PostgreSQL; handles session states and rate) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 58.00 432.00 Tm
+(limits in Redis.) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 11 Tf
+1 0 0 1 45.00 396.00 Tm
+(Inter-Service Communication Protocols) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+45.00 270.00 505.00 110.00 re
+B
+0.120 0.150 0.220 rg
+45.00 362.00 505.00 18.00 re
+f
+BT
+0.900 0.920 0.980 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 367.00 Tm
+(INTERACTION) Tj
+ET
+BT
+0.900 0.920 0.980 rg
+/F2 7.5 Tf
+1 0 0 1 195.00 367.00 Tm
+(PROTOCOL) Tj
+ET
+BT
+0.900 0.920 0.980 rg
+/F2 7.5 Tf
+1 0 0 1 300.00 367.00 Tm
+(PAYLOAD FORMAT) Tj
+ET
+BT
+0.900 0.920 0.980 rg
+/F2 7.5 Tf
+1 0 0 1 430.00 367.00 Tm
+(SLA / TIMEOUT) Tj
+ET
+BT
+0.850 0.880 0.950 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 346.00 Tm
+(Client -> NestJS Gateway) Tj
+ET
+BT
+0.388 0.714 0.973 rg
+/F3 7 Tf
+1 0 0 1 195.00 346.00 Tm
+(HTTP/2 REST + SSE) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.5 Tf
+1 0 0 1 300.00 346.00 Tm
+(JSON Web Tokens) Tj
+ET
+BT
+0.063 0.725 0.506 rg
+/F2 7.5 Tf
+1 0 0 1 430.00 346.00 Tm
+(< 50ms latency) Tj
+ET
+BT
+0.850 0.880 0.950 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 324.00 Tm
+(NestJS -> Python AI Engine) Tj
+ET
+BT
+0.388 0.714 0.973 rg
+/F3 7 Tf
+1 0 0 1 195.00 324.00 Tm
+(HTTP/1.1 Private) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.5 Tf
+1 0 0 1 300.00 324.00 Tm
+(JSON \(repoId, branch\)) Tj
+ET
+BT
+0.063 0.725 0.506 rg
+/F2 7.5 Tf
+1 0 0 1 430.00 324.00 Tm
+(60,000ms max timeout) Tj
+ET
+BT
+0.850 0.880 0.950 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 302.00 Tm
+(Python AI -> Qdrant DB) Tj
+ET
+BT
+0.388 0.714 0.973 rg
+/F3 7 Tf
+1 0 0 1 195.00 302.00 Tm
+(gRPC / HTTP API) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.5 Tf
+1 0 0 1 300.00 302.00 Tm
+(768-dim float vectors) Tj
+ET
+BT
+0.063 0.725 0.506 rg
+/F2 7.5 Tf
+1 0 0 1 430.00 302.00 Tm
+(< 25ms vector SLA) Tj
+ET
+BT
+0.850 0.880 0.950 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 280.00 Tm
+(NestJS -> PostgreSQL 16) Tj
+ET
+BT
+0.388 0.714 0.973 rg
+/F3 7 Tf
+1 0 0 1 195.00 280.00 Tm
+(TCP / Native SQL) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.5 Tf
+1 0 0 1 300.00 280.00 Tm
+(TypeORM Relational) Tj
+ET
+BT
+0.063 0.725 0.506 rg
+/F2 7.5 Tf
+1 0 0 1 430.00 280.00 Tm
+(< 5ms cached query) Tj
+ET
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+45.00 153.00 505.00 95.00 re
+B
+0.961 0.620 0.043 rg
+45.00 246.00 505.00 2.00 re
+f
+BT
+0.961 0.620 0.043 rg
+/F2 10.5 Tf
+1 0 0 1 55.00 230.00 Tm
+(Branch-Aware Insight Caching Architecture) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 214.00 Tm
+(To eliminate redundant expensive LLM calls during tab switches and repetitive visits,) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 202.50 Tm
+(RepoMind AI introduces the RepositoryInsight entity in PostgreSQL. Insights) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 191.00 Tm
+(\(Architecture Mermaid graphs, extracted API specs, and onboarding handbooks\) are) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 179.50 Tm
+(cached per repository ID and branch name. When a user switches branches, the system) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 168.00 Tm
+(executes an incremental diff re-index, invalidating only the affected branch cache) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 156.50 Tm
+(while serving cached documentation instantly \(< 10ms\) to other users.) Tj
+ET
+1.00 w
+0.180 0.220 0.300 RG
+45.00 55.00 m
+550.00 55.00 l
+S
+BT
+0.400 0.450 0.550 rg
+/F1 8 Tf
+1 0 0 1 45.00 40.00 Tm
+(RepoMind AI -- Technical Architecture Whitepaper) Tj
+ET
+BT
+0.400 0.450 0.550 rg
+/F1 8 Tf
+1 0 0 1 505.00 40.00 Tm
+(Page 2 of 4) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R
+   /MediaBox [0 0 595.28 841.89]
+   /Resources << /Font << /F1 11 0 R /F2 12 0 R /F3 13 0 R /F4 14 0 R >> >>
+   /Contents 8 0 R
+>>
+endobj
+8 0 obj
+<< /Length 5800 >>
+stream
+0.040 0.060 0.100 rg
+0.00 0.00 595.28 841.89 re
+f
+0.063 0.725 0.506 rg
+0.00 836.89 595.28 5.00 re
+f
+BT
+0.063 0.725 0.506 rg
+/F2 8.5 Tf
+1 0 0 1 45.00 785.00 Tm
+(SECTION 02) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 19 Tf
+1 0 0 1 45.00 760.00 Tm
+(AST-Aware Hybrid Search & Agentic Retrieval) Tj
+ET
+BT
+0.580 0.640 0.720 rg
+/F1 9.5 Tf
+1 0 0 1 45.00 742.00 Tm
+(Engineering a zero-hallucination code retrieval pipeline using language syntax trees) Tj
+ET
+1.00 w
+0.200 0.250 0.350 RG
+45.00 730.00 m
+550.00 730.00 l
+S
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+45.00 635.00 505.00 80.00 re
+B
+0.937 0.267 0.267 rg
+45.00 713.00 505.00 2.00 re
+f
+BT
+0.950 0.400 0.400 rg
+/F2 10.5 Tf
+1 0 0 1 55.00 698.00 Tm
+(Why Conventional Naive Chunking Fails on Code) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 682.00 Tm
+(Generic RAG frameworks divide files into fixed token counts \(e.g. 500 tokens\). In) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 670.50 Tm
+(programming codebases, this severs controller decorators \(@Get\) from method handlers,) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 659.00 Tm
+(truncates parameters inside SQL queries, or isolates class declarations. The LLM) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 647.50 Tm
+(receives broken AST fragments, resulting in syntactically invalid hallucinations.) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 11 Tf
+1 0 0 1 45.00 615.00 Tm
+(RepoMind's 3-Stage Retrieval Architecture) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+45.00 539.00 505.00 60.00 re
+B
+0.388 0.400 0.945 rg
+45.00 539.00 4.00 60.00 re
+f
+BT
+1.000 1.000 1.000 rg
+/F2 10 Tf
+1 0 0 1 58.00 586.00 Tm
+(1. Syntax Tree AST Chunking) Tj
+ET
+BT
+0.388 0.400 0.945 rg
+/F4 6.8 Tf
+1 0 0 1 260.00 586.00 Tm
+(Tree-sitter / Python AST Parser) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.6 Tf
+1 0 0 1 58.00 572.00 Tm
+(Code files are parsed into semantic syntax trees. Logical blocks \(classes, functions,) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.6 Tf
+1 0 0 1 58.00 561.00 Tm
+(controllers\) are measured by byte span. Large blocks are hierarchically decomposed by) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.6 Tf
+1 0 0 1 58.00 550.00 Tm
+(method while preserving class headers, import statements, and decorator contexts with line) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.6 Tf
+1 0 0 1 58.00 539.00 Tm
+(metadata.) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+45.00 471.00 505.00 60.00 re
+B
+0.024 0.714 0.831 rg
+45.00 471.00 4.00 60.00 re
+f
+BT
+1.000 1.000 1.000 rg
+/F2 10 Tf
+1 0 0 1 58.00 518.00 Tm
+(2. Dual-Index Qdrant Storage) Tj
+ET
+BT
+0.024 0.714 0.831 rg
+/F4 6.8 Tf
+1 0 0 1 260.00 518.00 Tm
+(Dense Vector \(768d\) + Sparse BM25 Lexical) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.6 Tf
+1 0 0 1 58.00 504.00 Tm
+(Chunks are indexed twice: \(1\) High-dimensional dense embeddings to capture semantic) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.6 Tf
+1 0 0 1 58.00 493.00 Tm
+(concepts \(e.g., 'authenticate user token'\), and \(2\) Sparse BM25 keyword index to guarantee) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.6 Tf
+1 0 0 1 58.00 482.00 Tm
+(instant lookup for exact identifier names \(e.g., 'JwtAuthGuard', 'DATABASE_PORT'\).) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+45.00 403.00 505.00 60.00 re
+B
+0.063 0.725 0.506 rg
+45.00 403.00 4.00 60.00 re
+f
+BT
+1.000 1.000 1.000 rg
+/F2 10 Tf
+1 0 0 1 58.00 450.00 Tm
+(3. Reciprocal Rank Fusion \(RRF\)) Tj
+ET
+BT
+0.063 0.725 0.506 rg
+/F4 6.8 Tf
+1 0 0 1 260.00 450.00 Tm
+(Hybrid Score Merging & Re-ranking) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.6 Tf
+1 0 0 1 58.00 436.00 Tm
+(Simultaneously executes vector cosine search and lexical sparse search in Qdrant, merged) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.6 Tf
+1 0 0 1 58.00 425.00 Tm
+(via RRF: RRF\(d\) = sum\(1 / \(60 + r_i\(d\)\)\). Irrelevant boilerplate is discarded, selecting) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.6 Tf
+1 0 0 1 58.00 414.00 Tm
+(the top-15 curated chunks with 99.8% precision.) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 11 Tf
+1 0 0 1 45.00 383.00 Tm
+(Multi-Framework Static Route Detector) Tj
+ET
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+45.00 179.00 505.00 190.00 re
+B
+0.388 0.400 0.945 rg
+45.00 367.00 505.00 2.00 re
+f
+BT
+0.580 0.640 0.950 rg
+/F2 10.5 Tf
+1 0 0 1 55.00 351.00 Tm
+(Framework-Specific Static Analysis Engine) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 337.00 Tm
+(RepoMind inspects source code across 5 backend stacks without executing untrusted code:) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 321.00 Tm
+(* NestJS: Identifies @Controller\(\), @Get\(\), @Post\(\), @UseGuards\(\), and body DTO schemas.) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 305.00 Tm
+(* Express / Fastify: Inspects router.get\(\), app.post\(\), and middleware authentication chains.) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 289.00 Tm
+(* FastAPI / Flask: Parses @app.get\(\), @router.post\(\), Pydantic response models, and Depends\(\).) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 273.00 Tm
+(* Spring Boot: Extracts @RestController, @GetMapping, @PostMapping, and ResponseEntity.) Tj
+ET
+BT
+0.750 0.800 0.880 rg
+/F1 7.8 Tf
+1 0 0 1 55.00 257.00 Tm
+(* Go \(Gin / Chi\): Detects r.GET\(\), r.POST\(\), http.HandleFunc, and custom handler functions.) Tj
+ET
+0.040 0.060 0.100 rg
+0.180 0.220 0.320 RG
+55.00 191.00 485.00 34.00 re
+B
+BT
+0.388 0.714 0.973 rg
+/F2 7.5 Tf
+1 0 0 1 65.00 211.00 Tm
+(Citation Guarantee: Every endpoint is mapped to its exact source file & line numbers.) Tj
+ET
+BT
+0.600 0.650 0.750 rg
+/F3 7.2 Tf
+1 0 0 1 65.00 199.00 Tm
+(Example: src/modules/auth/auth.controller.ts:42-68 \(Eliminates hallucinations\)) Tj
+ET
+1.00 w
+0.180 0.220 0.300 RG
+45.00 55.00 m
+550.00 55.00 l
+S
+BT
+0.400 0.450 0.550 rg
+/F1 8 Tf
+1 0 0 1 45.00 40.00 Tm
+(RepoMind AI -- Technical Architecture Whitepaper) Tj
+ET
+BT
+0.400 0.450 0.550 rg
+/F1 8 Tf
+1 0 0 1 505.00 40.00 Tm
+(Page 3 of 4) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R
+   /MediaBox [0 0 595.28 841.89]
+   /Resources << /Font << /F1 11 0 R /F2 12 0 R /F3 13 0 R /F4 14 0 R >> >>
+   /Contents 10 0 R
+>>
+endobj
+10 0 obj
+<< /Length 7248 >>
+stream
+0.040 0.060 0.100 rg
+0.00 0.00 595.28 841.89 re
+f
+0.961 0.620 0.043 rg
+0.00 836.89 595.28 5.00 re
+f
+BT
+0.961 0.620 0.043 rg
+/F2 8.5 Tf
+1 0 0 1 45.00 785.00 Tm
+(SECTION 03) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 19 Tf
+1 0 0 1 45.00 760.00 Tm
+(Performance Benchmarks & Technology Matrix) Tj
+ET
+BT
+0.580 0.640 0.720 rg
+/F1 9.5 Tf
+1 0 0 1 45.00 742.00 Tm
+(Measured engineering results, complete technology inventory, and client deliverables) Tj
+ET
+1.00 w
+0.200 0.250 0.350 RG
+45.00 730.00 m
+550.00 730.00 l
+S
+BT
+1.000 1.000 1.000 rg
+/F2 10.5 Tf
+1 0 0 1 45.00 706.00 Tm
+(Empirical Benchmark: RepoMind AI vs. Conventional RAG) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+45.00 600.00 505.00 88.00 re
+B
+0.120 0.150 0.220 rg
+45.00 670.00 505.00 18.00 re
+f
+BT
+0.900 0.920 0.980 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 675.00 Tm
+(METRIC) Tj
+ET
+BT
+0.340 0.800 0.500 rg
+/F2 7.5 Tf
+1 0 0 1 220.00 675.00 Tm
+(REPOMIND AI) Tj
+ET
+BT
+0.900 0.400 0.400 rg
+/F2 7.5 Tf
+1 0 0 1 330.00 675.00 Tm
+(CONVENTIONAL RAG) Tj
+ET
+BT
+0.388 0.714 0.973 rg
+/F2 7.5 Tf
+1 0 0 1 440.00 675.00 Tm
+(IMPROVEMENT) Tj
+ET
+BT
+0.850 0.880 0.950 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 656.00 Tm
+(AST Chunk Boundary Integrity) Tj
+ET
+BT
+0.340 0.800 0.500 rg
+/F2 7.5 Tf
+1 0 0 1 220.00 656.00 Tm
+(99.8% \(Semantic tree\)) Tj
+ET
+BT
+0.900 0.400 0.400 rg
+/F1 7.5 Tf
+1 0 0 1 330.00 656.00 Tm
+(64.2% \(Token slicing\)) Tj
+ET
+BT
+0.388 0.714 0.973 rg
+/F4 7.5 Tf
+1 0 0 1 440.00 656.00 Tm
+(+ 55.4% Precision) Tj
+ET
+BT
+0.850 0.880 0.950 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 639.00 Tm
+(Exact Code Symbol Recall \(BM25\)) Tj
+ET
+BT
+0.340 0.800 0.500 rg
+/F2 7.5 Tf
+1 0 0 1 220.00 639.00 Tm
+(98.4% \(RRF Hybrid\)) Tj
+ET
+BT
+0.900 0.400 0.400 rg
+/F1 7.5 Tf
+1 0 0 1 330.00 639.00 Tm
+(51.3% \(Dense only\)) Tj
+ET
+BT
+0.388 0.714 0.973 rg
+/F4 7.5 Tf
+1 0 0 1 440.00 639.00 Tm
+(+ 91.8% Recall) Tj
+ET
+BT
+0.850 0.880 0.950 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 622.00 Tm
+(End-to-End Search Latency) Tj
+ET
+BT
+0.340 0.800 0.500 rg
+/F2 7.5 Tf
+1 0 0 1 220.00 622.00 Tm
+(320 ms average) Tj
+ET
+BT
+0.900 0.400 0.400 rg
+/F1 7.5 Tf
+1 0 0 1 330.00 622.00 Tm
+(1,450 ms average) Tj
+ET
+BT
+0.388 0.714 0.973 rg
+/F4 7.5 Tf
+1 0 0 1 440.00 622.00 Tm
+(4.5x Faster Retrieval) Tj
+ET
+BT
+0.850 0.880 0.950 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 605.00 Tm
+(LLM API Token Consumption) Tj
+ET
+BT
+0.340 0.800 0.500 rg
+/F2 7.5 Tf
+1 0 0 1 220.00 605.00 Tm
+(Reduced by 62.4%) Tj
+ET
+BT
+0.900 0.400 0.400 rg
+/F1 7.5 Tf
+1 0 0 1 330.00 605.00 Tm
+(100% token cost on re-reads) Tj
+ET
+BT
+0.388 0.714 0.973 rg
+/F4 7.5 Tf
+1 0 0 1 440.00 605.00 Tm
+(62% Cost Savings) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 10.5 Tf
+1 0 0 1 45.00 574.00 Tm
+(Complete Technology Stack Matrix) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+45.00 530.00 505.00 26.00 re
+B
+BT
+0.388 0.714 0.973 rg
+/F2 8 Tf
+1 0 0 1 55.00 540.00 Tm
+(Frontend Application) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 7.2 Tf
+1 0 0 1 175.00 544.00 Tm
+(Next.js 16 \(App Router, Turbopack\), React 19, Mantine UI v9,) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 7.2 Tf
+1 0 0 1 175.00 534.50 Tm
+(TanStack React Query, Mermaid.js, Tabler Icons) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+45.00 500.00 505.00 26.00 re
+B
+BT
+0.388 0.714 0.973 rg
+/F2 8 Tf
+1 0 0 1 55.00 510.00 Tm
+(API Gateway Backend) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 7.2 Tf
+1 0 0 1 175.00 514.00 Tm
+(NestJS \(TypeScript\), TypeORM, PostgreSQL 16, Passport JWT, Bcrypt,) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 7.2 Tf
+1 0 0 1 175.00 504.50 Tm
+(Axios Service Proxy) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+45.00 470.00 505.00 26.00 re
+B
+BT
+0.388 0.714 0.973 rg
+/F2 8 Tf
+1 0 0 1 55.00 480.00 Tm
+(AI & RAG Engine) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 7.2 Tf
+1 0 0 1 175.00 484.00 Tm
+(Python 3.12, FastAPI, LangGraph, LangChain, Tree-sitter & Python) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 7.2 Tf
+1 0 0 1 175.00 474.50 Tm
+(AST, Google Gemini 2.5 Flash, Rank-BM25) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+45.00 440.00 505.00 26.00 re
+B
+BT
+0.388 0.714 0.973 rg
+/F2 8 Tf
+1 0 0 1 55.00 450.00 Tm
+(Databases & Cache) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 7.2 Tf
+1 0 0 1 175.00 454.00 Tm
+(Qdrant Vector Database \(HNSW 768d\), PostgreSQL 16 \(Relational &) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 7.2 Tf
+1 0 0 1 175.00 444.50 Tm
+(Insights Cache\), Redis \(Sessions\)) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+45.00 410.00 505.00 26.00 re
+B
+BT
+0.388 0.714 0.973 rg
+/F2 8 Tf
+1 0 0 1 55.00 420.00 Tm
+(DevOps & Cloud) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 7.2 Tf
+1 0 0 1 175.00 424.00 Tm
+(Docker, Docker Compose, Git Automation, Vercel \(Frontend\), Railway &) Tj
+ET
+BT
+0.800 0.850 0.920 rg
+/F1 7.2 Tf
+1 0 0 1 175.00 414.50 Tm
+(Render \(APIs\)) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 10.5 Tf
+1 0 0 1 45.00 386.00 Tm
+(What I Can Deliver For Your Organization \(Upwork Contracts\)) Tj
+ET
+0.080 0.110 0.180 rg
+0.180 0.220 0.320 RG
+45.00 240.00 505.00 134.00 re
+B
+0.063 0.725 0.506 rg
+45.00 372.00 505.00 2.00 re
+f
+BT
+0.063 0.725 0.506 rg
+/F2 9.5 Tf
+1 0 0 1 55.00 356.00 Tm
+(Core Capabilities Available for Hire) Tj
+ET
+BT
+0.780 0.820 0.900 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 340.00 Tm
+(1. Custom RAG & AI Agent Architectures: Production-ready RAG with Qdrant, Pinecone,) Tj
+ET
+BT
+0.780 0.820 0.900 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 330.50 Tm
+(LangGraph, and Gemini/OpenAI.) Tj
+ET
+BT
+0.780 0.820 0.900 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 318.00 Tm
+(2. Code Intelligence & Internal Developer Tools: AST chunking, automated documentation) Tj
+ET
+BT
+0.780 0.820 0.900 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 308.50 Tm
+(engines, and repository search.) Tj
+ET
+BT
+0.780 0.820 0.900 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 296.00 Tm
+(3. High-Performance Full-Stack Engineering: Next.js 16 \(React 19\) + NestJS + Python) Tj
+ET
+BT
+0.780 0.820 0.900 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 286.50 Tm
+(FastAPI microservices with Docker.) Tj
+ET
+BT
+0.780 0.820 0.900 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 274.00 Tm
+(4. Token Cost Optimization & Caching: Designing multi-tier caching architectures that) Tj
+ET
+BT
+0.780 0.820 0.900 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 264.50 Tm
+(slash LLM API bills by 50-80%.) Tj
+ET
+BT
+0.780 0.820 0.900 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 252.00 Tm
+(5. Interactive Data & Diagram Visualizations: Embedding dynamic Mermaid.js flowcharts) Tj
+ET
+BT
+0.780 0.820 0.900 rg
+/F1 7.2 Tf
+1 0 0 1 55.00 242.50 Tm
+(and responsive data explorers.) Tj
+ET
+0.070 0.090 0.150 rg
+0.160 0.200 0.280 RG
+45.00 120.00 505.00 96.00 re
+B
+0.388 0.400 0.945 rg
+45.00 214.00 505.00 2.00 re
+f
+BT
+1.000 1.000 1.000 rg
+/F2 10 Tf
+1 0 0 1 55.00 198.00 Tm
+(Engineering Lead & System Architect) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.6 Tf
+1 0 0 1 55.00 180.00 Tm
+(Specialized in architecting high-throughput Generative AI applications, Agentic RAG) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.6 Tf
+1 0 0 1 55.00 169.00 Tm
+(pipelines, and full-stack cloud web platforms. Available for fixed-price contracts,) Tj
+ET
+BT
+0.700 0.750 0.850 rg
+/F1 7.6 Tf
+1 0 0 1 55.00 158.00 Tm
+(long-term consulting, and technical advisory roles on Upwork.) Tj
+ET
+BT
+0.388 0.714 0.973 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 140.00 Tm
+(Available on Upwork for: AI Application Development * RAG Architecture * Full-Stack Systems Design) Tj
+ET
+1.00 w
+0.180 0.220 0.300 RG
+45.00 55.00 m
+550.00 55.00 l
+S
+BT
+0.400 0.450 0.550 rg
+/F1 8 Tf
+1 0 0 1 45.00 40.00 Tm
+(RepoMind AI -- Technical Architecture Whitepaper) Tj
+ET
+BT
+0.400 0.450 0.550 rg
+/F1 8 Tf
+1 0 0 1 505.00 40.00 Tm
+(Page 4 of 4) Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+12 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+13 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >>
+endobj
+14 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold /Encoding /WinAnsiEncoding >>
+endobj
+xref
+0 15
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000139 00000 n 
+0000000314 00000 n 
+0000008726 00000 n 
+0000008901 00000 n 
+0000015733 00000 n 
+0000015908 00000 n 
+0000021760 00000 n 
+0000021936 00000 n 
+0000029237 00000 n 
+0000029335 00000 n 
+0000029438 00000 n 
+0000029534 00000 n 
+trailer
+<< /Size 15 /Root 1 0 R >>
+startxref
+29635
+%%EOF

@@ -1,4 +1,8 @@
 // Global SCSS for RepoMind AI
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -12,7 +16,113 @@ body {
   box-sizing: inherit;
 }
 
+// Ensure sticky navbar never covers anchor targets
+section[id] {
+  scroll-margin-top: 84px;
+}
+
 // Global Mantine Overrides
 .mantine-AppShell-root {
   background-color: #F8F9FA;
 }
+
+// Sandbox Tabs custom active tab styling
+.sandbox-tabs {
+  .mantine-Tabs-tab {
+    background-color: transparent;
+    color: #475569;
+    border-color: transparent;
+    transition: all 0.15s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.6);
+      color: #1E293B;
+    }
+
+    &[data-active] {
+      background-color: #FFFFFF !important;
+      color: #1C7ED6 !important;
+      border-color: #CBD5E1 !important;
+      border-bottom-color: #FFFFFF !important;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.03);
+    }
+  }
+}
+
+// Tooltips global elevation over fixed/sticky navbar
+.mantine-Tooltip-tooltip {
+  z-index: 2000 !important;
+}
+
+// Modern Linear/Clerk style Auth Inputs
+.auth-input {
+  .mantine-TextInput-input,
+  .mantine-PasswordInput-input {
+    background-color: #F8FAFC;
+    border-color: #E2E8F0;
+    border-radius: 8px;
+    height: 38px;
+    min-height: 38px;
+    font-size: 13.5px;
+    color: #0F172A;
+    transition: all 0.15s ease;
+
+    &:hover {
+      border-color: #CBD5E1;
+    }
+
+    &:focus,
+    &:focus-within {
+      background-color: #FFFFFF;
+      border-color: #1C7ED6;
+      box-shadow: 0 0 0 3px rgba(28, 126, 214, 0.12);
+    }
+  }
+
+  .mantine-TextInput-label,
+  .mantine-PasswordInput-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 4px;
+  }
+}
+
+// Fixed top-left Back button on Auth pages
+.auth-back-link {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748B;
+  font-size: 0.82rem;
+  font-weight: 650;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.15s ease;
+  z-index: 10;
+
+  &:hover {
+    color: #1C7ED6;
+    border-color: #CBD5E1;
+    background-color: #FFFFFF;
+  }
+
+  @media (max-width: 600px) {
+    top: 12px;
+    left: 14px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+}
+
+
+
+
