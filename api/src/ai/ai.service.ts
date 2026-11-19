@@ -11,7 +11,7 @@ export class AiService {
       const response = await firstValueFrom(
         this.httpService.get(
           (process.env.AI_SERVICE_URL || 'http://localhost:8000') + '/health',
-          { timeout: 1500 },
+          { timeout: 5000 },
         ),
       );
       return response.status === 200;

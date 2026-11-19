@@ -32,7 +32,7 @@ export class AuthController {
       body.password,
     );
     this.setCookie(res, access_token);
-    return { message: 'Registered successfully', user };
+    return { message: 'Registered successfully', user, access_token };
   }
 
   @Public()
@@ -46,7 +46,7 @@ export class AuthController {
       body.password,
     );
     this.setCookie(res, access_token);
-    return { message: 'Logged in successfully', user };
+    return { message: 'Logged in successfully', user, access_token };
   }
 
   @Public()
@@ -90,15 +90,21 @@ export class AuthController {
 
   @Post('logout')
   logout(@Res({ passthrough: true }) res: Response) {
-    res.clearCookie('jwt');
+    const isProd = process.env.NODE_ENV === 'production';
+    res.clearCookie('jwt', {
+      httpOnly: true,
+      secure: isProd,
+      sameSite: isProd ? 'none' : 'lax',
+    });
     return { message: 'Logged out successfully' };
   }
 
   private setCookie(res: Response, token: string) {
+    const isProd = process.env.NODE_ENV === 'production';
     res.cookie('jwt', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
+      secure: isProd,
+      sameSite: isProd ? 'none' : 'lax',
       maxAge: 24 * 60 * 60 * 1000, // 1 day
     });
   }

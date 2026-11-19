@@ -15,6 +15,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
           const cookies = req.cookies as Record<string, string>;
           token = cookies['jwt'] || null;
         }
+        if (!token && req && req.headers && req.headers.authorization) {
+          const authHeader = req.headers.authorization;
+          if (authHeader.startsWith('Bearer ')) {
+            token = authHeader.substring(7);
+          }
+        }
         return token;
       },
       ignoreExpiration: false,
